@@ -1,0 +1,361 @@
+[
+ {
+  "id": "prixz-gobots",
+  "nombre": "Prixz",
+  "pais": "México",
+  "giro": "Farmacia en línea",
+  "tarea": "Atención a clientes en marketplaces",
+  "herramientas": [
+   "GoBots"
+  ],
+  "costo": "",
+  "resultado": "+MXN 500 mil en ventas atribuidas a la atención automática; más de 1,200 ventas; −30% en reclamos abiertos (según GoBots).",
+  "fuente": "https://gobots.ai/es/prixz-caso-de-exito/",
+  "fecha": "",
+  "evidencia": "medio",
+  "nota": "Caso publicado por el proveedor."
+ },
+ {
+  "id": "novabori-kavanta",
+  "nombre": "Novabori",
+  "pais": "México",
+  "giro": "Reciclaje textil",
+  "tarea": "Ventas",
+  "herramientas": [
+   "Kavanta (capacitación y agentes de IA)"
+  ],
+  "costo": "",
+  "resultado": "80% menos tiempo para crear propuestas y materiales comerciales; 90% menos tiempo en investigación de mercado (según Kavanta).",
+  "fuente": "https://kavanta.com/caso-de-exito-novabori/",
+  "fecha": "",
+  "evidencia": "medio",
+  "nota": "Caso publicado por el proveedor."
+ },
+ {
+  "id": "zenda-cafe",
+  "nombre": "Zenda Café",
+  "pais": "México",
+  "giro": "Cafetería y comida a domicilio",
+  "tarea": "Atención por WhatsApp",
+  "herramientas": [
+   "Chatbot con IA para WhatsApp (GreenChimp)"
+  ],
+  "costo": "",
+  "resultado": "Más de 200 leads atendidos en 2 semanas; 4 servicios en un solo chatbot (según GreenChimp).",
+  "fuente": "https://greenchimpmx.com/casos-exito/zenda-cafe-chatbot-whatsapp",
+  "fecha": "",
+  "evidencia": "medio",
+  "nota": "Caso publicado por el proveedor."
+ },
+ {
+  "id": "mr-food-ezcontact",
+  "nombre": "Mr. Food",
+  "pais": "México",
+  "giro": "Comedores industriales",
+  "tarea": "Pedidos por WhatsApp",
+  "herramientas": [
+   "EZContact"
+  ],
+  "costo": "",
+  "resultado": "Más de 500 pedidos diarios; tiempo por pedido de 4 min a 45 s; errores de ~8% a <1% (según EZContact).",
+  "fuente": "https://ezcontact.ai/es/blog/caso-exito-mr-food-pedidos-whatsapp/",
+  "fecha": "2026-02-04",
+  "evidencia": "medio",
+  "nota": "Caso publicado por el proveedor."
+ },
+ {
+  "id": "albor-arte",
+  "nombre": "Albor Arte Mx",
+  "pais": "México",
+  "giro": "Joyería artesanal",
+  "tarea": "Atención por WhatsApp",
+  "herramientas": [
+   "Business AI de WhatsApp (Meta)"
+  ],
+  "costo": "",
+  "resultado": "La dueña estima ~80% menos tiempo respondiendo a clientes.",
+  "fuente": "https://business.whatsapp.com/resources/success-stories/albor-arte-mx",
+  "fecha": "",
+  "evidencia": "medio",
+  "nota": "Resultados reportados por la empresa en una historia de Meta."
+ },
+ {
+  "id": "piedra-nomada",
+  "nombre": "Piedra Nómada",
+  "pais": "México",
+  "giro": "Joyería y decoración en macramé",
+  "tarea": "Atención por WhatsApp",
+  "herramientas": [
+   "Meta Business Agent en WhatsApp",
+   "Anuncios de clic a WhatsApp"
+  ],
+  "costo": "",
+  "resultado": "Aumento estimado del 10% en ventas, atribuido a Meta Business Agent (prueba feb–mar 2025).",
+  "fuente": "https://whatsappbusiness.com/es-la/resources/success-stories/piedra-nomada/",
+  "fecha": "2025",
+  "evidencia": "medio",
+  "nota": "Resultados reportados por la empresa en una historia de Meta."
+ },
+ {
+  "id": "gummitiles",
+  "nombre": "GummiTiles",
+  "pais": "México",
+  "giro": "Fabricante de pisos de caucho",
+  "tarea": "Ventas por WhatsApp",
+  "herramientas": [
+   "Meta Business Agent en WhatsApp",
+   "Anuncios de clic a WhatsApp"
+  ],
+  "costo": "",
+  "resultado": "Conversión hasta 4 veces mayor; +50% en ventas; 15–25 horas ahorradas por semana; 80% de las conversaciones las maneja el agente (ene–abr 2026).",
+  "fuente": "https://whatsappbusiness.com/es-la/resources/success-stories/gummitiles/",
+  "fecha": "2026",
+  "evidencia": "medio",
+  "nota": "Resultados reportados por la empresa en una historia de Meta."
+ },
+ {
+  "id": "guitarras-david-alcantara",
+  "nombre": "Guitarras David Alcántara",
+  "pais": "México",
+  "giro": "Fabricación de guitarras y clases",
+  "tarea": "Atención por WhatsApp",
+  "herramientas": [
+   "Meta Business Agent en WhatsApp"
+  ],
+  "costo": "",
+  "resultado": "Automatizó cerca del 60% de unas 400 consultas (según la historia de Meta).",
+  "fuente": "https://business.whatsapp.com/resources/success-stories/guitarras-david-alcantara",
+  "fecha": "",
+  "evidencia": "medio",
+  "nota": "Cifra tomada del resumen de búsqueda; revisar en la página."
+ },
+ {
+  "id": "mega-alimentos-telvia",
+  "nombre": "Mega Alimentos",
+  "pais": "México",
+  "giro": "Alimentos (salsas y chamoy)",
+  "tarea": "Pedidos por voz y WhatsApp",
+  "herramientas": [
+   "Telvia (agente Malia)"
+  ],
+  "costo": "",
+  "resultado": "+40% de crecimiento mensual en ventas a través del agente; opera en las 6 regiones comerciales; 0 personas sustituidas (según Telvia).",
+  "fuente": "https://telvia.io/caso-mega-alimentos/",
+  "fecha": "",
+  "evidencia": "medio",
+  "nota": "Empresa mediana-grande; caso publicado por el proveedor."
+ },
+ {
+  "id": "estilo-urbano",
+  "nombre": "Estilo Urbano",
+  "pais": "México",
+  "giro": "Tienda de ropa",
+  "tarea": "Atención por WhatsApp",
+  "herramientas": [
+   "Chatbot de WhatsApp con IA (Aurora Inbox)"
+  ],
+  "costo": "",
+  "resultado": "30% de los ingresos vienen de ventas nocturnas y de fin de semana atendidas por el bot; 40% más consultas con el mismo equipo (citado por AddWebTech).",
+  "fuente": "https://add.com.mx/casos-exito-inteligencia-artificial-pymes-mexico/",
+  "fecha": "2026-05-13",
+  "evidencia": "bajo",
+  "nota": "Fuente de segunda mano."
+ },
+ {
+  "id": "tamey-myt",
+  "nombre": "TAMEY-MYT",
+  "pais": "México",
+  "giro": "Tableros y muebles de madera",
+  "tarea": "Contabilidad y facturación",
+  "herramientas": [
+   "Alegra (IA)"
+  ],
+  "costo": "",
+  "resultado": "",
+  "fuente": "https://blog.alegra.com/mexico/caso-de-exito-tamey-myt/",
+  "fecha": "",
+  "evidencia": "bajo",
+  "nota": "El proveedor no da cifras: describe cotizaciones, facturación e inventario con IA."
+ },
+ {
+  "id": "clivi",
+  "nombre": "Clivi",
+  "pais": "México",
+  "giro": "Salud digital (startup)",
+  "tarea": "Atención a pacientes",
+  "herramientas": [
+   "IA generativa de Google Cloud"
+  ],
+  "costo": "",
+  "resultado": "",
+  "fuente": "https://blog.google/intl/es-419/actualizaciones-de-producto/en-la-nube/google-cloud-90-casos-de-ia-en-latinoamerica-que-inspiran-innovacion/",
+  "fecha": "",
+  "evidencia": "bajo",
+  "nota": "Mención sin cifras en la lista de Google."
+ },
+ {
+  "id": "propanel",
+  "nombre": "Propanel",
+  "pais": "Argentina",
+  "giro": "Climatización e ingeniería",
+  "tarea": "Soporte técnico",
+  "herramientas": [
+   "Agente de IA entrenado con documentación técnica"
+  ],
+  "costo": "",
+  "resultado": "El agente resuelve el 60% de las consultas repetitivas (citado por Crovana).",
+  "fuente": "https://crovana.com/casos-exito-ia-negocios-latinoamerica/",
+  "fecha": "",
+  "evidencia": "bajo",
+  "nota": "Fuente de segunda mano."
+ },
+ {
+  "id": "insehla-aiken",
+  "nombre": "Insehla",
+  "pais": "Argentina",
+  "giro": "PyME (giro no especificado)",
+  "tarea": "Atención comercial y reportes",
+  "herramientas": [
+   "AIKen"
+  ],
+  "costo": "",
+  "resultado": "~13% menos costos; ~20 mil conversaciones atendidas; ~36% más ventas en 90 días (según AIKen).",
+  "fuente": "https://aiken.ar/casos-de-exito/",
+  "fecha": "",
+  "evidencia": "medio",
+  "nota": "Caso publicado por el proveedor."
+ },
+ {
+  "id": "reuse-vambe",
+  "nombre": "Reuse",
+  "pais": "Chile",
+  "giro": "Equipos tecnológicos reacondicionados",
+  "tarea": "Ventas",
+  "herramientas": [
+   "Vambe (agentes de IA)"
+  ],
+  "costo": "",
+  "resultado": "+70% de conversión en tres semanas y luego +220% en ventas (según el CEO de Vambe en Forbes Chile).",
+  "fuente": "https://forbes.cl/negocios/2026-02-27/esta-startup-chilena-ha-logrado-que-las-empresas-vendan-hasta-un-70-mas-con-agentes-de-ia-que-con-humanos/",
+  "fecha": "2026-02-27",
+  "evidencia": "medio",
+  "nota": "Medio de prensa, pero la cifra la da el proveedor."
+ },
+ {
+  "id": "politecnico-suramerica",
+  "nombre": "Politécnico de Suramérica",
+  "pais": "Colombia",
+  "giro": "Escuela técnica",
+  "tarea": "Captación de alumnos por WhatsApp",
+  "herramientas": [
+   "Atomchat",
+   "WhatsApp Business Platform"
+  ],
+  "costo": "",
+  "resultado": "4 veces más leads al mes y 2.1 veces más inscripciones al mes (reportado por la empresa).",
+  "fuente": "https://whatsappbusiness.com/resources/success-stories/politecnico-de-suramerica/",
+  "fecha": "",
+  "evidencia": "medio",
+  "nota": "Resultados reportados por la empresa."
+ },
+ {
+  "id": "alphafit-invy",
+  "nombre": "Alphafit E.I.R.L.",
+  "pais": "Perú",
+  "giro": "Ropa deportiva",
+  "tarea": "Inventario",
+  "herramientas": [
+   "INVY (agente de IA y alertas de stock)"
+  ],
+  "costo": "",
+  "resultado": "",
+  "fuente": "https://www.invyperu.com/casos-de-exito",
+  "fecha": "",
+  "evidencia": "bajo",
+  "nota": "Sin cifras de resultado; el sistema nació en esta tienda."
+ },
+ {
+  "id": "meat-valles",
+  "nombre": "Meat Valles 2012 SLU",
+  "pais": "España",
+  "giro": "Carnicería",
+  "tarea": "Pedidos por WhatsApp",
+  "herramientas": [
+   "WhatsApp Business API",
+   "n8n",
+   "Claude"
+  ],
+  "costo": "",
+  "resultado": "Pedidos 100% automatizados; 0 errores de transcripción; +15 h/semana recuperadas; respuesta de ~20 min a <30 s (según Proxera Labs, a los 30 días).",
+  "fuente": "https://proxeralabs.com/blog/articles/como-automatizar-pedidos-whatsapp/",
+  "fecha": "2026-04-08",
+  "evidencia": "medio",
+  "nota": "Caso publicado por el implementador."
+ },
+ {
+  "id": "bakery-de-stefano",
+  "nombre": "Bakery de Stefano",
+  "pais": "España",
+  "giro": "Pastelería",
+  "tarea": "Contabilidad, turnos y producción",
+  "herramientas": [
+   "ChatGPT"
+  ],
+  "costo": "~20 € al mes (plan básico de ChatGPT, según el dueño)",
+  "resultado": "El dueño dice que reemplazó horas de trabajo administrativo: facturación mensual, turnos y predicción de producción.",
+  "fuente": "https://ecosistemastartup.com/una-pasteleria-canaria-usa-ia-para-todo-factura-turnos-y-recetas/",
+  "fecha": "2026",
+  "evidencia": "alto",
+  "nota": "Reportaje de prensa (Canarias7) con el dueño identificado y sin proveedor de por medio."
+ },
+ {
+  "id": "vivim-solar",
+  "nombre": "Vivim Solar",
+  "pais": "España",
+  "giro": "Instalación de paneles solares",
+  "tarea": "Operación y ERP",
+  "herramientas": [
+   "STEL Order",
+   "Clientify",
+   "IA (Simple AI Studio)"
+  ],
+  "costo": "",
+  "resultado": "Ahorro confirmado de más de 6 h/semana; el gerente lo cita en video (según Simple AI Studio).",
+  "fuente": "https://simpleaistudio.com/es/caso-vivim-solar/",
+  "fecha": "",
+  "evidencia": "medio",
+  "nota": "Caso publicado por el implementador, con testimonio del gerente."
+ },
+ {
+  "id": "gestoria-sevilla",
+  "nombre": "Gestoría de María Sánchez (Sevilla)",
+  "pais": "España",
+  "giro": "Gestoría fiscal",
+  "tarea": "Contabilidad (facturas)",
+  "herramientas": [
+   "CopilotGestoria"
+  ],
+  "costo": "149 € al mes (según el proveedor)",
+  "resultado": "17 facturas procesadas en 8 s con 96.1% de precisión y 5 min de revisión (según el proveedor).",
+  "fuente": "https://copilotgestoria.com/blog/de-3-horas-a-8-segundos-procesamiento-facturas-ia-gestorias-caso-real",
+  "fecha": "",
+  "evidencia": "bajo",
+  "nota": "Blog del proveedor con tono de marketing; no se puede verificar a la clienta."
+ },
+ {
+  "id": "nowports",
+  "nombre": "Nowports",
+  "pais": "México",
+  "giro": "Logística (startup)",
+  "tarea": "Predicción y cadena de suministro",
+  "herramientas": [
+   "Google Cloud IA"
+  ],
+  "costo": "",
+  "resultado": "",
+  "fuente": "https://blog.google/intl/es-419/actualizaciones-de-producto/en-la-nube/google-cloud-90-casos-de-ia-en-latinoamerica-que-inspiran-innovacion/",
+  "fecha": "",
+  "evidencia": "bajo",
+  "nota": "Mención sin cifras; no es una PyME típica."
+ }
+]

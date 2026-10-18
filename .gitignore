@@ -1,0 +1,7 @@
+site/
+.venv/
+shots/
+newsletter/
+__pycache__/
+.pytest_cache/
+data/borradores.json
