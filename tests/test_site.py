@@ -87,14 +87,14 @@ def test_search_and_filters(server, browser, publicados):
 def test_css_loads(server, browser):
     pg=browser.new_page(); pg.goto(server+"/casos/mr-food-ezcontact/", wait_until="domcontentloaded")
     bg=pg.eval_on_selector("header","e=>getComputedStyle(e).backgroundColor")
-    assert bg=="rgb(245, 243, 237)"
+    assert bg=="rgb(16, 19, 17)"
 
 @pytest.mark.parametrize("path",["/","/casos/mr-food-ezcontact/","/casos/rey-pez/","/manda-tu-caso/","/patrocina/"])
 def test_mobile_layout(server, browser, path):
     pg=browser.new_page(viewport={"width":375,"height":800},is_mobile=True); pg.goto(server+path, wait_until="domcontentloaded")
     sw=pg.evaluate("document.documentElement.scrollWidth"); assert sw<=375, f"overflow {sw}px"
     if path=="/":
-        cols=pg.eval_on_selector(".grid","e=>getComputedStyle(e).gridTemplateColumns.split(' ').length"); assert cols==1
+        cols=pg.eval_on_selector(".grid","e=>getComputedStyle(e).gridTemplateColumns.split(' ').length"); assert cols==2
 
 def test_tally_embed(build):
     t=open(os.path.join(SITE,"manda-tu-caso","index.html"),encoding="utf-8").read()

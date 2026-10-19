@@ -1,11 +1,43 @@
 /* Progressive enhancement. All stories and navigation work without JavaScript. */
 (() => {
   const byId = (id) => document.getElementById(id);
+  const toggle = byId("theme-toggle");
+  const syncTheme = (theme) => {
+    document.documentElement.dataset.theme = theme;
+    const dark = theme === "dark";
+    toggle.setAttribute("aria-pressed", String(dark));
+    toggle.title = dark ? "Cambiar a modo claro" : "Cambiar a modo oscuro";
+    document.querySelector('meta[name="theme-color"]').content = dark
+      ? "#101311"
+      : "#f5f3ed";
+  };
+  if (toggle) {
+    toggle.hidden = false;
+    syncTheme(document.documentElement.dataset.theme);
+    toggle.addEventListener("click", () => {
+      const theme =
+        document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+      syncTheme(theme);
+      try {
+        localStorage.setItem("iaenlapyme-theme", theme);
+      } catch (error) {
+        /* Choice still works in memory. */
+      }
+    });
+    window.addEventListener("storage", (event) => {
+      if (event.key === "iaenlapyme-theme")
+        syncTheme(event.newValue === "light" ? "light" : "dark");
+    });
+  }
   const search = byId("q");
   if (search) {
     const ids = ["q", "giro", "tarea", "herr", "pais"];
     const cards = [...document.querySelectorAll("#list .card")];
     const reset = byId("reset-filters");
+    const menu = document.querySelector(".category-menu");
+    const categoryButtons = [...menu.querySelectorAll("button")];
+    let category = "";
+    menu.hidden = false;
     const normalize = (value) =>
       value
         .normalize("NFD")
@@ -19,6 +51,7 @@
         const data = card.dataset;
         const matches =
           (!query || normalize(data.txt).includes(query)) &&
+          (!category || data.categories.split("|").includes(category)) &&
           ["giro", "tarea", "pais"].every(
             (id) => !byId(id).value || data[id] === byId(id).value,
           ) &&
@@ -29,9 +62,22 @@
       });
       byId("n").textContent = count + (count === 1 ? " caso" : " casos");
       byId("empty-state").hidden = count !== 0;
-      reset.hidden = !ids.some((id) => byId(id).value);
+      reset.hidden = !category && !ids.some((id) => byId(id).value);
+      categoryButtons.forEach((button) =>
+        button.setAttribute(
+          "aria-pressed",
+          String(button.dataset.category === category),
+        ),
+      );
     };
+    categoryButtons.forEach((button) =>
+      button.addEventListener("click", () => {
+        category = button.dataset.category;
+        filter();
+      }),
+    );
     const clear = () => {
+      category = "";
       ids.forEach((id) => {
         byId(id).value = "";
       });
