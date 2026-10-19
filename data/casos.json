@@ -359,6 +359,89 @@
   "nota": "Mención sin cifras; no es una PyME típica."
  },
  {
+  "id": "liminal-yavendio",
+  "nombre": "Liminal",
+  "pais": "Perú",
+  "giro": "Tienda de ropa outdoor y camisas técnicas",
+  "tarea": "Ventas por WhatsApp",
+  "herramientas": [
+   "yavendió! (agente de IA en WhatsApp)",
+   "Cobro con Yape, Plin y transferencia en el chat"
+  ],
+  "costo": "",
+  "que_hace": [
+   "Responde los mensajes de WhatsApp y redes con el catálogo real (tallas, colores, precios y stock).",
+   "Cobra dentro de la misma conversación y deja el pedido listo para despacho.",
+   "Retoma sola a quien dejó la conversación a medias (1,381 recordatorios en 8 meses, según el proveedor)."
+  ],
+  "resultado": "1,314 ventas cerradas por el agente entre diciembre de 2025 y julio de 2026; conversión de ~20% a 23%; 56% de las ventas ocurren de noche o en fin de semana (según yavendió!).",
+  "fuente": "https://yavendio.com/co/casos-de-exito/liminal",
+  "fecha": "2026",
+  "evidencia": "medio",
+  "nota": "Caso publicado por el proveedor, con el fundador identificado por su nombre de pila. El 20% de conversión 'antes' es una estimación del propio fundador."
+ },
+ {
+  "id": "majaderas-oriente-delibot",
+  "nombre": "Majaderas Oriente",
+  "pais": "México",
+  "giro": "Restaurante con entrega a domicilio",
+  "tarea": "Pedidos por WhatsApp",
+  "herramientas": [
+   "Delibot (pedidos por WhatsApp con IA)"
+  ],
+  "costo": "",
+  "que_hace": [
+   "Atiende el WhatsApp, guía el pedido paso a paso (menú, extras, datos y pago) y lo manda estructurado a caja.",
+   "Funciona como un canal más junto a Rappi, Uber Eats y DiDi Food."
+  ],
+  "resultado": "Unos $45,000 MXN al mes en pedidos por WhatsApp que se cierran sin que el equipo lea los mensajes (según Delibot).",
+  "fuente": "https://delibot.com.mx/",
+  "fecha": "",
+  "evidencia": "medio",
+  "nota": "Caso publicado por el proveedor en su página principal. La fuente no dice la ciudad ni si el monto es venta nueva o desplazada de otros canales."
+ },
+ {
+  "id": "vinedos-azteca",
+  "nombre": "Viñedos Azteca",
+  "pais": "México",
+  "giro": "Viñedo y bodega de vinos",
+  "tarea": "Ventas por WhatsApp",
+  "herramientas": [
+   "ChatGPT (asistente sommelier)",
+   "WhatsApp"
+  ],
+  "costo": "",
+  "que_hace": [
+   "Un asistente hecho con ChatGPT atiende por WhatsApp como sommelier: recomienda vinos según la comida y la ocasión.",
+   "Calcula cantidades y precio y entrega una cotización en un minuto, también para pedidos corporativos."
+  ],
+  "resultado": "Según la empresa, las ventas subieron 40% y la venta digital casi se emparejó con la física (antes 70% en tienda y 30% digital).",
+  "fuente": "https://expansion.mx/empresas/2026/04/02/chatgpt-sommelier-aumenta-ventas-de-vinedos-azteca",
+  "fecha": "2026-04-02",
+  "evidencia": "alto",
+  "nota": "Reportaje de prensa (Expansión) con la consultora y un directivo identificados. Las cifras son datos de la propia empresa citados por el medio."
+ },
+ {
+  "id": "alitas-jonatan-garcia",
+  "nombre": "Negocio de alitas de Jonatán García (CDMX)",
+  "pais": "México",
+  "giro": "Restaurante de alitas y hamburguesas",
+  "tarea": "Crear imágenes de promociones para redes",
+  "herramientas": [
+   "ChatGPT (generación y mejora de imágenes)"
+  ],
+  "costo": "",
+  "que_hace": [
+   "El dueño mejora con IA las fotos de sus productos o le pide a ChatGPT imágenes desde cero para promociones y redes.",
+   "Para menús, carteles y banners impresos sigue contratando a un diseñador, porque la imagen generada se pixeló al imprimir."
+  ],
+  "resultado": "No da cifras de ventas. El dueño dice que para el día a día ya no necesita diseñador; antes pagaba unos 500 pesos por cada trabajo de diseño.",
+  "fuente": "https://expansion.mx/tecnologia/2026/09/18/pymes-usan-chatgpt-crear-imagenes-ahorrar-diseno",
+  "fecha": "2026-09-18",
+  "evidencia": "alto",
+  "nota": "Reportaje de prensa (Expansión) con el dueño identificado. El mismo artículo advierte que el uso masivo de imágenes genéricas puede restar diferenciación."
+ },
+ {
   "id": "rey-pez",
   "nombre": "Rey Pez",
   "pais": "México",

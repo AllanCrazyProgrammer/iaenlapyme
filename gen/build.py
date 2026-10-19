@@ -18,7 +18,9 @@ const show=x=>{n.textContent=x==0?'¿Te sirvió? Sé la primera persona en decir
 go('get').then(x=>{show(x);if(st())done();v.hidden=false}).catch(()=>{});
 b.addEventListener('click',()=>{if(st())return;b.disabled=true;go('hit').then(x=>{sv();show(x);done()}).catch(()=>{b.disabled=false;n.textContent='No se pudo registrar tu voto. Intenta más tarde.'})});})()</script>""")
 def art(g):
-    g=g.lower(); return ("una "+g) if g.split()[0].endswith(("a","ería","ción")) else ("un negocio de "+g)
+    g=g.lower(); w=g.split()[0]
+    if w in ("restaurante","fabricante","viñedo","taller","comedor"): return "un "+g
+    return ("una "+g) if w.endswith(("a","ería","ción")) else ("un negocio de "+g)
 def title(c): return f"Cómo {art(c['giro'])} en {c['pais']} usa IA para {c['tarea'][0].lower()+c['tarea'][1:]}"
 CSS=Path(R+"/gen/style.css").read_text(encoding="utf-8")+"\n"+Path(R+"/gen/catalog.css").read_text(encoding="utf-8")
 NL="""<section class="box nl" id="boletin" aria-labelledby="newsletter-title"><div class="nl-intro"><span class="eyebrow">EN TU BANDEJA DE ENTRADA</span><h2 id="newsletter-title">Ideas que merecen<br>abrirse.</h2><p>El boletín semanal. 5 casos reales de IA en negocios como el tuyo, cada semana. Gratis.</p><span class="newsletter-arrow" aria-hidden="true">↗</span></div><div class="nl-form"><span class="eyebrow">UNA DOSIS SEMANAL DE INSPIRACIÓN</span>
@@ -44,7 +46,7 @@ def categories(c):
     result=[]
     for key, words in {
         'atencion': ('atención','soporte'),
-        'ventas': ('ventas','captación','comercial'),
+        'ventas': ('ventas','captación','comercial','promociones'),
         'pedidos': ('pedidos',),
         'finanzas': ('contabilidad','cuentas'),
         'operacion': ('inventario','operación','predicción','producción','reportes'),
