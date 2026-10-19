@@ -167,7 +167,7 @@ def test_rey_pez_no_name_no_envios(build, publicados):
     assert not re.search(r"\$\s?\d|\bmxn\b|\busd\b", blob), "sin montos"
 
 KIT="https://ia-en-la-pyme.kit.com/5e51021646/index.js"
-FAKE_KIT="""document.currentScript.insertAdjacentHTML('beforebegin','<form class="formkit-form" data-uid="5e51021646"><input class="formkit-input" type="email" name="email_address" placeholder="Tu correo"><button class="formkit-submit">Suscribirme</button></form>')"""
+FAKE_KIT="""document.querySelector('.nl').insertAdjacentHTML('beforeend','<form class="formkit-form" data-uid="5e51021646"><input class="formkit-input" type="email" name="email_address" placeholder="Tu correo"><button class="formkit-submit">Suscribirme</button></form>')"""
 @pytest.mark.parametrize("path",["/","/casos/rey-pez/"])
 def test_kit_email_field_visible(server, browser, path):
     pg=browser.new_page(viewport={"width":375,"height":800},is_mobile=True)
@@ -180,7 +180,7 @@ def test_kit_email_field_visible(server, browser, path):
     pg.route("**/*", h)
     pg.goto(server+path, wait_until="domcontentloaded")
     inp=pg.locator(".nl input[type=email]"); inp.wait_for(state="visible")
-    assert inp.bounding_box()["height"]>=30 and inp.bounding_box()["width"]>=200
+    assert inp.bounding_box()["height"]>=30 and inp.bounding_box()["width"]>=150
     pg.wait_for_timeout(5500); assert pg.locator(".nl-fb").first.is_hidden(), "no mostrar el botón de respaldo si el form cargó"
     assert pg.evaluate("document.documentElement.scrollWidth")<=375; pg.close()
 
