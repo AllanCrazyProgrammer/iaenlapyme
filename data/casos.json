@@ -357,5 +357,22 @@
   "fecha": "",
   "evidencia": "bajo",
   "nota": "Mención sin cifras; no es una PyME típica."
+ },
+ {
+  "id": "rey-pez",
+  "nombre": "Rey Pez",
+  "pais": "México",
+  "giro": "Procesadora y venta de camarón",
+  "tarea": "Cuentas, pedidos, inventario y envíos",
+  "herramientas": [
+   "Web app propia con IA",
+   "Agente de IA"
+  ],
+  "costo": "",
+  "resultado": "Pasó a una web app el control que antes se llevaba en papel; ahora un agente de IA le ayuda a capturar datos en esa app, como el inventario. El dueño no da cifras.",
+  "fuente": "https://x.com/AllanRe33147279/status/2111998351788965914",
+  "fecha": "2026-10",
+  "evidencia": "bajo",
+  "nota": "Fuente de primera mano: lo cuenta el propio dueño. Es un negocio familiar y su dueño, Allan Reyes, también edita este sitio. Sin cifras verificadas por terceros."
  }
 ]
