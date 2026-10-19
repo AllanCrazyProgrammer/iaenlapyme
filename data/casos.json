@@ -363,7 +363,7 @@
   "nombre": "Rey Pez",
   "pais": "México",
   "giro": "Procesadora y venta de camarón",
-  "tarea": "Cuentas, pedidos, inventario y envíos",
+  "tarea": "Cuentas, pedidos e inventario",
   "herramientas": [
    "Web app propia con IA",
    "Agente de IA"
@@ -373,6 +373,6 @@
   "fuente": "https://x.com/AllanRe33147279/status/2111998351788965914",
   "fecha": "2026-10",
   "evidencia": "bajo",
-  "nota": "Fuente de primera mano: lo cuenta el propio dueño. Es un negocio familiar y su dueño, Allan Reyes, también edita este sitio. Sin cifras verificadas por terceros."
+  "nota": "Fuente de primera mano: lo cuenta el propio dueño del negocio, que también edita este sitio. Es un negocio familiar. Sin cifras verificadas por terceros."
  }
 ]
