@@ -136,7 +136,7 @@ def test_vote_button(server, browser):
     pg.route(API+"/**", h)
     pg.goto(server+"/casos/rey-pez/", wait_until="domcontentloaded"); pg.wait_for_selector("#vote:not([hidden])")
     assert "4 personas" in pg.inner_text("#vn")
-    pg.click("#vbtn"); pg.wait_for_selector("#vbtn:disabled")
+    pg.click("#vbtn"); pg.wait_for_selector("#vn:has-text('5 personas')"); assert pg.is_disabled("#vbtn")
     assert "5 personas" in pg.inner_text("#vn") and state["hits"]==1
     pg.reload(wait_until="domcontentloaded"); pg.wait_for_selector("#vote:not([hidden])")
     assert pg.is_disabled("#vbtn"), "un voto por navegador"
