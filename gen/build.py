@@ -28,10 +28,17 @@ input,select,textarea,button{font:inherit;padding:10px;border:1px solid #cdd3dc;
 .nl{background:#102a43;color:#fff}.nl form{display:flex;gap:8px}.nl button{width:auto;background:#f0b429;color:#102a43;font-weight:700}
 footer{text-align:center;font-size:.85rem;color:#667;padding:24px}dl dt{font-weight:700;margin-top:10px}dl dd{margin:0;overflow-wrap:anywhere}
 .vote{display:flex;gap:12px;align-items:center;flex-wrap:wrap}.vote button{width:auto;padding:10px 16px;font-weight:700}.vote button:disabled{background:#8fb8aa;cursor:default}
+.nl .btn{display:inline-block;background:#f0b429;color:#102a43;font-weight:700;padding:12px 20px;border-radius:8px;text-decoration:none}
+.nl .formkit-form .formkit-background{display:none!important}.nl .formkit-form .formkit-column{padding:16px!important}
+.nl .formkit-form .formkit-header{margin:0 0 8px!important}.nl .formkit-form .formkit-header h2{font-size:1.2rem!important;margin:0!important;line-height:1.3}
+.nl .formkit-form .formkit-input{color:#1d2330!important;padding:10px 12px!important;border:1px solid #cdd3dc!important;border-radius:8px!important}.nl .formkit-form .formkit-submit{background-color:#f0b429!important;color:#102a43!important;border-radius:8px!important}
 @media(min-width:700px){.f{grid-template-columns:2fr 1fr 1fr 1fr 1fr}.f input{grid-column:auto}.grid{grid-template-columns:1fr 1fr}}"""
 NL="""<section class="box nl"><h2>El boletín semanal</h2><p>5 casos reales de IA en negocios como el tuyo, cada semana. Gratis.</p>
 <script async data-uid="5e51021646" src="https://ia-en-la-pyme.kit.com/5e51021646/index.js"></script>
-<p><a href="https://ia-en-la-pyme.kit.com/5e51021646" target="_blank" rel="noopener" style="color:#f0b429">¿No ves el formulario? Suscríbete aquí</a></p></section>"""
+<p class="nl-fb" hidden><a class="btn" href="https://ia-en-la-pyme.kit.com/5e51021646" target="_blank" rel="noopener">Suscríbete gratis</a></p>
+<noscript><p><a class="btn" href="https://ia-en-la-pyme.kit.com/5e51021646" target="_blank" rel="noopener">Suscríbete gratis</a></p></noscript>
+<p><a href="https://ia-en-la-pyme.kit.com/5e51021646" target="_blank" rel="noopener" style="color:#f0b429">¿No ves el formulario? Suscríbete aquí</a></p>
+<script>setTimeout(()=>{if(!document.querySelector('.nl .formkit-form input[type=email]'))document.querySelectorAll('.nl-fb').forEach(p=>p.hidden=false)},5000)</script></section>"""
 def page(t,desc,body,path,extra=""):
     url=B+path; body=body.replace("{P}",P)
     return f"""<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">

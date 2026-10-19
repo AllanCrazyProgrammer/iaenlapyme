@@ -154,3 +154,31 @@ def test_vote_hidden_if_service_down(server, browser):
     pg.route(API+"/**", lambda r: r.abort())
     pg.goto(server+"/casos/rey-pez/", wait_until="domcontentloaded"); pg.wait_for_timeout(800)
     assert pg.locator("#vote").is_hidden() and pg.locator("h1").is_visible(); ctx.close()
+
+def test_rey_pez_no_name_no_envios(build, publicados):
+    c=next(c for c in publicados if c["id"]=="rey-pez")
+    assert c["tarea"]=="Cuentas, pedidos e inventario"
+    blob=json.dumps(c,ensure_ascii=False).lower()+open(os.path.join(SITE,"casos","rey-pez","index.html"),encoding="utf-8").read().lower()
+    for bad in ("allan reyes","envíos","envios","tampico"): assert bad not in blob, bad
+    assert "dueño del negocio, que también edita este sitio" in c["nota"]
+
+KIT="https://ia-en-la-pyme.kit.com/5e51021646/index.js"
+FAKE_KIT="""document.currentScript.insertAdjacentHTML('beforebegin','<form class="formkit-form" data-uid="5e51021646"><input class="formkit-input" type="email" name="email_address" placeholder="Tu correo"><button class="formkit-submit">Suscribirme</button></form>')"""
+@pytest.mark.parametrize("path",["/","/casos/rey-pez/"])
+def test_kit_email_field_visible(server, browser, path):
+    pg=browser.new_page(viewport={"width":375,"height":800},is_mobile=True)
+    pg.route(KIT, lambda r: r.fulfill(status=200, content_type="application/javascript", body=FAKE_KIT))
+    pg.route("**/*", lambda r: r.continue_() if r.request.url.startswith(server.split("/iaenlapyme")[0]) or r.request.url==KIT else r.abort())
+    pg.goto(server+path, wait_until="domcontentloaded")
+    inp=pg.locator(".nl input[type=email]"); inp.wait_for(state="visible")
+    assert inp.bounding_box()["height"]>=30 and inp.bounding_box()["width"]>=200
+    pg.wait_for_timeout(5500); assert pg.locator(".nl-fb").first.is_hidden(), "no mostrar el botón de respaldo si el form cargó"
+    assert pg.evaluate("document.documentElement.scrollWidth")<=375; pg.close()
+
+def test_kit_fallback_when_blocked(server, browser):
+    pg=browser.new_page(viewport={"width":375,"height":800},is_mobile=True)
+    pg.route("**/*kit.com/**", lambda r: r.abort())
+    pg.goto(server+"/", wait_until="domcontentloaded")
+    fb=pg.locator(".nl-fb a.btn").first; fb.wait_for(state="visible", timeout=8000)
+    assert fb.get_attribute("href")=="https://ia-en-la-pyme.kit.com/5e51021646" and "Suscríbete" in fb.inner_text()
+    pg.close()
