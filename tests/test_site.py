@@ -109,3 +109,48 @@ def test_kit_embed(build, rel):
     assert '<script async data-uid="5e51021646" src="https://ia-en-la-pyme.kit.com/5e51021646/index.js"></script>' in t
     assert 'href="https://ia-en-la-pyme.kit.com/5e51021646"' in t
     assert "Placeholder: falta conectar" not in t
+
+def test_no_city_mentioned(build):
+    # Allan pidió no mencionar su ciudad en ningún lado.
+    files=pages()+[os.path.join(SITE,"sitemap.xml"),os.path.join(os.path.dirname(SITE),"data","casos.json")]
+    hits=[f for f in files if "tampico" in open(f,encoding="utf-8").read().lower()]
+    assert not hits, hits
+
+def test_rey_pez_case(build, publicados):
+    c=next(c for c in publicados if c["id"]=="rey-pez")
+    assert c["pais"]=="México" and c["evidencia"]=="bajo"
+    assert c["fuente"].startswith("https://x.com/AllanRe33147279/status/")
+    assert "primera mano" in c["nota"]
+    t=open(os.path.join(SITE,"casos","rey-pez","index.html"),encoding="utf-8").read()
+    assert "Rey Pez" in t and "Nivel de evidencia: bajo" in t
+    assert 'href="/iaenlapyme/casos/rey-pez/"' in open(os.path.join(SITE,"index.html"),encoding="utf-8").read()
+
+API="https://abacus.jasoncameron.dev"
+def test_vote_button(server, browser):
+    ctx=browser.new_context(); pg=ctx.new_page(); state={"v":4,"hits":0}
+    def h(route):
+        u=route.request.url
+        if "/hit/" in u: state["v"]+=1; state["hits"]+=1
+        assert "/allancrazyprogrammer-iaenlapyme/caso-rey-pez" in u, u
+        route.fulfill(status=200, content_type="application/json", body=json.dumps({"value":state["v"]}), headers={"Access-Control-Allow-Origin":"*"})
+    pg.route(API+"/**", h)
+    pg.goto(server+"/casos/rey-pez/", wait_until="domcontentloaded"); pg.wait_for_selector("#vote:not([hidden])")
+    assert "4 personas" in pg.inner_text("#vn")
+    pg.click("#vbtn"); pg.wait_for_selector("#vbtn:disabled")
+    assert "5 personas" in pg.inner_text("#vn") and state["hits"]==1
+    pg.reload(wait_until="domcontentloaded"); pg.wait_for_selector("#vote:not([hidden])")
+    assert pg.is_disabled("#vbtn"), "un voto por navegador"
+    pg.click("#vbtn", force=True); pg.wait_for_timeout(300); assert state["hits"]==1
+    ctx.close()
+
+def test_vote_new_counter_starts_at_zero(server, browser):
+    ctx=browser.new_context(); pg=ctx.new_page()
+    pg.route(API+"/**", lambda r: r.fulfill(status=404, content_type="application/json", body='{"error":"Key not found"}', headers={"Access-Control-Allow-Origin":"*"}))
+    pg.goto(server+"/casos/mr-food-ezcontact/", wait_until="domcontentloaded"); pg.wait_for_selector("#vote:not([hidden])")
+    assert "0 personas" in pg.inner_text("#vn"); ctx.close()
+
+def test_vote_hidden_if_service_down(server, browser):
+    ctx=browser.new_context(); pg=ctx.new_page()
+    pg.route(API+"/**", lambda r: r.abort())
+    pg.goto(server+"/casos/rey-pez/", wait_until="domcontentloaded"); pg.wait_for_timeout(800)
+    assert pg.locator("#vote").is_hidden() and pg.locator("h1").is_visible(); ctx.close()

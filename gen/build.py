@@ -3,6 +3,17 @@ import os
 B="https://allancrazyprogrammer.github.io/iaenlapyme"; P="/iaenlapyme"; R=os.path.dirname(os.path.dirname(os.path.abspath(__file__))); S=os.environ.get("OUT",R+"/site")
 casos=[c for c in json.load(open(R+"/data/casos.json")) if not c.get("borrador")]
 e=html.escape
+VOTE_API="https://abacus.jasoncameron.dev"; VOTE_NS="allancrazyprogrammer-iaenlapyme"
+def vote(c):
+    # Contador público sin cuenta (Abacus). Si el servicio falla, el bloque se queda oculto.
+    return ('<div class="box vote" id="vote" hidden data-api="'+VOTE_API+'" data-ns="'+VOTE_NS+'" data-key="caso-'+e(c['id'])+'">'
+    '<button type="button" id="vbtn">👍 Me sirvió</button> <span id="vn" aria-live="polite"></span></div>'
+    """<script>(()=>{const v=document.getElementById('vote'),b=document.getElementById('vbtn'),n=document.getElementById('vn'),d=v.dataset,u=a=>d.api+'/'+a+'/'+d.ns+'/'+d.key,lk='voto:'+d.key;
+let st=()=>{try{return localStorage.getItem(lk)}catch(x){return null}},sv=()=>{try{localStorage.setItem(lk,'1')}catch(x){}};
+const go=(a)=>{const c=new AbortController(),t=setTimeout(()=>c.abort(),6000);return fetch(u(a),{signal:c.signal}).then(r=>{clearTimeout(t);if(a=='get'&&r.status==404)return {value:0};if(!r.ok)throw r.status;return r.json()}).then(j=>{if(typeof j.value!='number')throw 'x';return j.value})};
+const show=x=>{n.textContent=x==1?'A 1 persona le sirvió':'A '+x+' personas les sirvió'};const done=()=>{b.disabled=true;b.textContent='✓ Te sirvió'};
+go('get').then(x=>{show(x);if(st())done();v.hidden=false}).catch(()=>{});
+b.addEventListener('click',()=>{if(st())return;b.disabled=true;go('hit').then(x=>{sv();show(x);done()}).catch(()=>{b.disabled=false;n.textContent='No se pudo registrar tu voto. Intenta más tarde.'})});})()</script>""")
 def art(g):
     g=g.lower(); return ("una "+g) if g.split()[0].endswith(("a","ería","ción")) else ("un negocio de "+g)
 def title(c): return f"Cómo {art(c['giro'])} en {c['pais']} usa IA para {c['tarea'][0].lower()+c['tarea'][1:]}"
@@ -16,6 +27,7 @@ input,select,textarea,button{font:inherit;padding:10px;border:1px solid #cdd3dc;
 .ev-alto{background:#d1f5d3}.ev-bajo{background:#fdeccc;color:#8a5a00}.box{background:#fff;border-radius:12px;padding:16px;margin:18px 0;box-shadow:0 1px 3px #0001}
 .nl{background:#102a43;color:#fff}.nl form{display:flex;gap:8px}.nl button{width:auto;background:#f0b429;color:#102a43;font-weight:700}
 footer{text-align:center;font-size:.85rem;color:#667;padding:24px}dl dt{font-weight:700;margin-top:10px}dl dd{margin:0}
+.vote{display:flex;gap:12px;align-items:center;flex-wrap:wrap}.vote button{width:auto;padding:10px 16px;font-weight:700}.vote button:disabled{background:#8fb8aa;cursor:default}
 @media(min-width:700px){.f{grid-template-columns:2fr 1fr 1fr 1fr 1fr}.f input{grid-column:auto}.grid{grid-template-columns:1fr 1fr}}"""
 NL="""<section class="box nl"><h2>El boletín semanal</h2><p>5 casos reales de IA en negocios como el tuyo, cada semana. Gratis.</p>
 <script async data-uid="5e51021646" src="https://ia-en-la-pyme.kit.com/5e51021646/index.js"></script>
@@ -47,7 +59,7 @@ for c in casos:
 <div class="box"><dl><dt>Negocio</dt><dd>{e(c['nombre'])}</dd><dt>País</dt><dd>{e(c['pais'])}</dd><dt>Giro</dt><dd>{e(c['giro'])}</dd><dt>Tarea</dt><dd>{e(c['tarea'])}</dd>
 <dt>Herramientas</dt><dd>{e(', '.join(c['herramientas']))}</dd><dt>Costo aproximado</dt><dd>{e(c['costo'] or 'No lo dice la fuente')}</dd>
 <dt>Resultado (tal como lo dice la fuente)</dt><dd>{e(c['resultado'] or 'La fuente no da cifras.')}</dd><dt>Fuente</dt><dd><a href="{e(c['fuente'])}" rel="nofollow noopener" target="_blank">{e(c['fuente'])}</a></dd>
-<dt>Fecha</dt><dd>{e(c['fecha'] or '—')}</dd><dt>Nota</dt><dd>{e(c.get('nota',''))}</dd></dl></div>{NL}"""
+<dt>Fecha</dt><dd>{e(c['fecha'] or '—')}</dd><dt>Nota</dt><dd>{e(c.get('nota',''))}</dd></dl></div>{vote(c)}{NL}"""
     os.makedirs(f"{S}/casos/{c['id']}"); open(f"{S}/casos/{c['id']}/index.html","w").write(page(t+" | IA en la PyME",d,b,f"/casos/{c['id']}/",f'<script type="application/ld+json">{ld}</script>'))
 os.makedirs(S+"/manda-tu-caso"); open(S+"/manda-tu-caso/index.html","w").write(page("Manda tu caso de IA | IA en la PyME","¿Usas IA en tu negocio? Cuéntanos y lo publicamos con tu permiso.","""<h1>Manda tu caso</h1><p>¿Usas IA en tu negocio? Cuéntanos qué hiciste y qué cambió. Lo revisamos antes de publicar.</p>
 <div class="box"><iframe data-tally-src="https://tally.so/embed/1WPYyl?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="900" frameborder="0" marginheight="0" marginwidth="0" title="Manda tu caso"></iframe>
