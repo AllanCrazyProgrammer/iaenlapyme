@@ -4,6 +4,9 @@ B="https://allancrazyprogrammer.github.io/iaenlapyme"; P="/iaenlapyme"; R=os.pat
 casos=[c for c in json.load(open(R+"/data/casos.json")) if not c.get("borrador")]
 e=html.escape
 VOTE_API="https://abacus.jasoncameron.dev"; VOTE_NS="allancrazyprogrammer-iaenlapyme"
+def qh(c):
+    q=c.get('que_hace') or []
+    return ('<dt>Qué hace la IA</dt><dd><ul class="qh">'+''.join(f'<li>{e(x)}</li>' for x in q)+'</ul></dd>') if q else ''
 def vote(c):
     # Contador público sin cuenta (Abacus). Si el servicio falla, el bloque se queda oculto.
     return ('<div class="box vote" id="vote" hidden data-api="'+VOTE_API+'" data-ns="'+VOTE_NS+'" data-key="caso-'+e(c['id'])+'">'
@@ -26,7 +29,7 @@ input,select,textarea,button{font:inherit;padding:10px;border:1px solid #cdd3dc;
 .card h3{margin:.2em 0 .4em;font-size:1.05rem}.tag{display:inline-block;font-size:.75rem;background:#e6f2ee;color:#0b6e4f;border-radius:99px;padding:2px 8px;margin:2px}
 .ev-alto{background:#d1f5d3}.ev-bajo{background:#fdeccc;color:#8a5a00}.box{background:#fff;border-radius:12px;padding:16px;margin:18px 0;box-shadow:0 1px 3px #0001}
 .nl{background:#102a43;color:#fff}.nl form{display:flex;gap:8px}.nl button{width:auto;background:#f0b429;color:#102a43;font-weight:700}
-footer{text-align:center;font-size:.85rem;color:#667;padding:24px}dl dt{font-weight:700;margin-top:10px}dl dd{margin:0;overflow-wrap:anywhere}
+footer{text-align:center;font-size:.85rem;color:#667;padding:24px}dl dt{font-weight:700;margin-top:10px}dl dd{margin:0;overflow-wrap:anywhere}.qh{margin:4px 0;padding-left:20px}.qh li{margin:4px 0}
 .vote{display:flex;gap:12px;align-items:center;flex-wrap:wrap}.vote button{width:auto;padding:10px 16px;font-weight:700}.vote button:disabled{background:#8fb8aa;cursor:default}
 .nl .btn{display:inline-block;background:#f0b429;color:#102a43;font-weight:700;padding:12px 20px;border-radius:8px;text-decoration:none}
 .nl .formkit-form .formkit-background{display:none!important}.nl .formkit-form .formkit-column{padding:16px!important}
@@ -65,7 +68,7 @@ for c in casos:
     b=f"""<p><a href="{P}/">← Todos los casos</a></p><h1>{e(t)}</h1><p class="tag ev-{c['evidencia']}">Nivel de evidencia: {c['evidencia']}</p>
 <div class="box"><dl><dt>Negocio</dt><dd>{e(c['nombre'])}</dd><dt>País</dt><dd>{e(c['pais'])}</dd><dt>Giro</dt><dd>{e(c['giro'])}</dd><dt>Tarea</dt><dd>{e(c['tarea'])}</dd>
 <dt>Herramientas</dt><dd>{e(', '.join(c['herramientas']))}</dd><dt>Costo aproximado</dt><dd>{e(c['costo'] or 'No lo dice la fuente')}</dd>
-<dt>Resultado (tal como lo dice la fuente)</dt><dd>{e(c['resultado'] or 'La fuente no da cifras.')}</dd><dt>Fuente</dt><dd><a href="{e(c['fuente'])}" rel="nofollow noopener" target="_blank">{e(c['fuente'])}</a></dd>
+{qh(c)}<dt>Resultado (tal como lo dice la fuente)</dt><dd>{e(c['resultado'] or 'La fuente no da cifras.')}</dd><dt>Fuente</dt><dd><a href="{e(c['fuente'])}" rel="nofollow noopener" target="_blank">{e(c['fuente'])}</a></dd>
 <dt>Fecha</dt><dd>{e(c['fecha'] or '—')}</dd><dt>Nota</dt><dd>{e(c.get('nota',''))}</dd></dl></div>{vote(c)}{NL}"""
     os.makedirs(f"{S}/casos/{c['id']}"); open(f"{S}/casos/{c['id']}/index.html","w").write(page(t+" | IA en la PyME",d,b,f"/casos/{c['id']}/",f'<script type="application/ld+json">{ld}</script>'))
 os.makedirs(S+"/manda-tu-caso"); open(S+"/manda-tu-caso/index.html","w").write(page("Manda tu caso de IA | IA en la PyME","¿Usas IA en tu negocio? Cuéntanos y lo publicamos con tu permiso.","""<h1>Manda tu caso</h1><p>¿Usas IA en tu negocio? Cuéntanos qué hiciste y qué cambió. Lo revisamos antes de publicar.</p>

@@ -161,6 +161,10 @@ def test_rey_pez_no_name_no_envios(build, publicados):
     blob=json.dumps(c,ensure_ascii=False).lower()+open(os.path.join(SITE,"casos","rey-pez","index.html"),encoding="utf-8").read().lower()
     for bad in ("allan reyes","envíos","envios","tampico"): assert bad not in blob, bad
     assert "dueño del negocio, que también edita este sitio" in c["nota"]
+    assert len(c["que_hace"])==4 and "Grok Bot" in " ".join(c["herramientas"])
+    t=open(os.path.join(SITE,"casos","rey-pez","index.html"),encoding="utf-8").read()
+    assert "Qué hace la IA" in t and t.count('<li>')>=4 and "cuarto frío" in t
+    assert not re.search(r"\$\s?\d|\bmxn\b|\busd\b", blob), "sin montos"
 
 KIT="https://ia-en-la-pyme.kit.com/5e51021646/index.js"
 FAKE_KIT="""document.currentScript.insertAdjacentHTML('beforebegin','<form class="formkit-form" data-uid="5e51021646"><input class="formkit-input" type="email" name="email_address" placeholder="Tu correo"><button class="formkit-submit">Suscribirme</button></form>')"""

@@ -365,11 +365,18 @@
   "giro": "Procesadora y venta de camarón",
   "tarea": "Cuentas, pedidos e inventario",
   "herramientas": [
-   "Web app propia con IA",
-   "Agente de IA"
+   "Web app propia (Vue + Firebase)",
+   "Asistente de IA (Grok Bot) conectado a la app",
+   "Agentes de código en la nube"
   ],
   "costo": "",
-  "resultado": "Pasó a una web app el control que antes se llevaba en papel; ahora un agente de IA le ayuda a capturar datos en esa app, como el inventario. El dueño no da cifras.",
+  "que_hace": [
+   "El dueño dicta en lenguaje natural (\"salida de 5 cajas de 36/40\") y la IA lo captura en la app: salidas de inventario, pedidos, abonos de clientes y préstamos a trabajadores, aplicando las reglas del negocio (como sacar primero el lote más antiguo).",
+   "Consulta existencias por producto, lote y cuarto frío, y avisa cuando algo baja de cierto nivel.",
+   "Cada mañana hace una auditoría automática que cruza salidas contra embarques y reporta diferencias.",
+   "Revisa saldos de clientes y propone arreglos al código que el dueño aprueba antes de publicarlos."
+  ],
+  "resultado": "La auditoría encontró errores reales en saldos de clientes y un error que regresaba kilos a valores viejos; ambos ya se corrigieron. No hay cifras medidas de tiempo ahorrado.",
   "fuente": "https://x.com/AllanRe33147279/status/2111998351788965914",
   "fecha": "2026-10",
   "evidencia": "bajo",
