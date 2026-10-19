@@ -87,7 +87,7 @@ def test_search_and_filters(server, browser, publicados):
 def test_css_loads(server, browser):
     pg=browser.new_page(); pg.goto(server+"/casos/mr-food-ezcontact/", wait_until="domcontentloaded")
     bg=pg.eval_on_selector("header","e=>getComputedStyle(e).backgroundColor")
-    assert bg=="rgb(11, 110, 79)"
+    assert bg=="rgb(245, 243, 237)"
 
 @pytest.mark.parametrize("path",["/","/casos/mr-food-ezcontact/","/casos/rey-pez/","/manda-tu-caso/","/patrocina/"])
 def test_mobile_layout(server, browser, path):

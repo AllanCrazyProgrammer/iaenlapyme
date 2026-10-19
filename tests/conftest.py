@@ -31,4 +31,4 @@ def server(build, tmp_path_factory):
 def browser():
     from playwright.sync_api import sync_playwright
     with sync_playwright() as p:
-        b = p.chromium.launch(); yield b; b.close()
+        b = p.chromium.launch(executable_path=os.environ.get("PLAYWRIGHT_CHROMIUM_EXECUTABLE")); yield b; b.close()

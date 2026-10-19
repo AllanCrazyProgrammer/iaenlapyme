@@ -1,5 +1,5 @@
-import json,html,os,re,unicodedata,shutil
-import os
+import json,html,os,shutil
+from pathlib import Path
 B="https://allancrazyprogrammer.github.io/iaenlapyme"; P="/iaenlapyme"; R=os.path.dirname(os.path.dirname(os.path.abspath(__file__))); S=os.environ.get("OUT",R+"/site")
 casos=[c for c in json.load(open(R+"/data/casos.json")) if not c.get("borrador")]
 e=html.escape
@@ -20,52 +20,44 @@ b.addEventListener('click',()=>{if(st())return;b.disabled=true;go('hit').then(x=
 def art(g):
     g=g.lower(); return ("una "+g) if g.split()[0].endswith(("a","ería","ción")) else ("un negocio de "+g)
 def title(c): return f"Cómo {art(c['giro'])} en {c['pais']} usa IA para {c['tarea'][0].lower()+c['tarea'][1:]}"
-CSS="""*{box-sizing:border-box}[hidden]{display:none!important}body{margin:0;font-family:system-ui,-apple-system,sans-serif;color:#1d2330;background:#f7f8fa;line-height:1.55}
-a{color:#0b6e4f}header{background:#0b6e4f;color:#fff;padding:14px 16px}header a{color:#fff;text-decoration:none;margin-right:14px;font-size:.95rem}
-header .logo{font-weight:800;font-size:1.15rem}main{max-width:960px;margin:auto;padding:16px}
-.hero h1{font-size:1.7rem;margin:.4em 0}.f{display:grid;gap:8px;grid-template-columns:1fr 1fr}.f input{grid-column:1/-1}
-input,select,textarea,button{font:inherit;padding:10px;border:1px solid #cdd3dc;border-radius:8px;width:100%}button{background:#0b6e4f;color:#fff;border:0;cursor:pointer}
-.grid{display:grid;gap:12px;margin-top:16px}.card{background:#fff;border-radius:12px;padding:14px;box-shadow:0 1px 3px #0001;text-decoration:none;color:inherit;display:block}
-.card h3{margin:.2em 0 .4em;font-size:1.05rem}.tag{display:inline-block;font-size:.75rem;background:#e6f2ee;color:#0b6e4f;border-radius:99px;padding:2px 8px;margin:2px}
-.ev-alto{background:#d1f5d3}.ev-bajo{background:#fdeccc;color:#8a5a00}.box{background:#fff;border-radius:12px;padding:16px;margin:18px 0;box-shadow:0 1px 3px #0001}
-.nl{background:#102a43;color:#fff}.nl form{display:flex;gap:8px}.nl button{width:auto;background:#f0b429;color:#102a43;font-weight:700}
-footer{text-align:center;font-size:.85rem;color:#667;padding:24px}dl dt{font-weight:700;margin-top:10px}dl dd{margin:0;overflow-wrap:anywhere}.qh{margin:4px 0;padding-left:20px}.qh li{margin:4px 0}
-.vote{display:flex;gap:12px;align-items:center;flex-wrap:wrap}.vote button{width:auto;padding:10px 16px;font-weight:700}.vote button:disabled{background:#8fb8aa;cursor:default}
-.nl .btn{display:inline-block;background:#f0b429;color:#102a43;font-weight:700;padding:12px 20px;border-radius:8px;text-decoration:none}
-.nl .formkit-form .formkit-background{display:none!important}.nl .formkit-form .formkit-column{padding:16px!important}
-.nl .formkit-form .formkit-header{margin:0 0 8px!important}.nl .formkit-form .formkit-header h2{font-size:1.2rem!important;margin:0!important;line-height:1.3}
-.nl .formkit-form .formkit-input{color:#1d2330!important;padding:10px 12px!important;border:1px solid #cdd3dc!important;border-radius:8px!important}.nl .formkit-form .formkit-submit{background-color:#f0b429!important;color:#102a43!important;border-radius:8px!important}
-@media(min-width:700px){.f{grid-template-columns:2fr 1fr 1fr 1fr 1fr}.f input{grid-column:auto}.grid{grid-template-columns:1fr 1fr}}"""
-NL="""<section class="box nl"><h2>El boletín semanal</h2><p>5 casos reales de IA en negocios como el tuyo, cada semana. Gratis.</p>
+CSS=Path(R+"/gen/style.css").read_text(encoding="utf-8")
+NL="""<section class="box nl" id="boletin" aria-labelledby="newsletter-title"><div class="nl-intro"><span class="eyebrow">EN TU BANDEJA DE ENTRADA</span><h2 id="newsletter-title">Ideas que merecen<br>abrirse.</h2><p>El boletín semanal. 5 casos reales de IA en negocios como el tuyo, cada semana. Gratis.</p><span class="newsletter-arrow" aria-hidden="true">↗</span></div><div class="nl-form"><span class="eyebrow">UNA DOSIS SEMANAL DE INSPIRACIÓN</span>
 <script async data-uid="5e51021646" src="https://ia-en-la-pyme.kit.com/5e51021646/index.js"></script>
-<p class="nl-fb" hidden><a class="btn" href="https://ia-en-la-pyme.kit.com/5e51021646" target="_blank" rel="noopener">Suscríbete gratis</a></p>
-<noscript><p><a class="btn" href="https://ia-en-la-pyme.kit.com/5e51021646" target="_blank" rel="noopener">Suscríbete gratis</a></p></noscript>
-<p><a href="https://ia-en-la-pyme.kit.com/5e51021646" target="_blank" rel="noopener" style="color:#f0b429">¿No ves el formulario? Suscríbete aquí</a></p>
+<p class="nl-fb" hidden><a class="btn" href="https://ia-en-la-pyme.kit.com/5e51021646" target="_blank" rel="noopener">Suscríbete gratis ↗</a></p>
+<noscript><p><a class="btn" href="https://ia-en-la-pyme.kit.com/5e51021646" target="_blank" rel="noopener">Suscríbete gratis ↗</a></p></noscript>
+<p class="nl-help"><a href="https://ia-en-la-pyme.kit.com/5e51021646" target="_blank" rel="noopener">¿No ves el formulario? Suscríbete aquí ↗</a></p></div>
 <script>setTimeout(()=>{if(!document.querySelector('.nl .formkit-form input[type=email]'))document.querySelectorAll('.nl-fb').forEach(p=>p.hidden=false)},5000)</script></section>"""
+ARROW='<svg class="icon-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>'
 def page(t,desc,body,path,extra=""):
     url=B+path; body=body.replace("{P}",P)
-    return f"""<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+    nav=lambda href,label: f'<a href="{P}{href}"'+(' aria-current="page"' if path==href else '')+f'>{label}</a>'
+    page_class="home" if path=="/" else "detail" if path.startswith("/casos/") else "interior"
+    result=f"""<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{e(t)}</title><meta name="description" content="{e(desc)}"><link rel="canonical" href="{url}">
 <meta property="og:title" content="{e(t)}"><meta property="og:description" content="{e(desc)}"><meta property="og:url" content="{url}"><meta property="og:type" content="website"><meta name="twitter:card" content="summary">
-<link rel="stylesheet" href="{P}/style.css">{extra}</head><body><header><a class="logo" href="{P}/">IA en la PyME</a><a href="{P}/manda-tu-caso/">Manda tu caso</a><a href="{P}/patrocina/">Patrocina</a></header>
-<main>{body}</main><footer>IA en la PyME · Casos reales, con su fuente. Si algo está mal, avísanos.</footer></body></html>"""
-def card(c): 
+<meta name="theme-color" content="#f5f3ed"><link rel="stylesheet" href="{P}/style.css"><script defer src="{P}/site.js"></script>{extra}</head><body class="{page_class}"><a class="skip-link" href="#main">Saltar al contenido</a><header class="site-header"><div class="nav-wrap"><a class="logo" href="{P}/"><span class="brand-icon" aria-hidden="true">i<span>·</span></span><span>IA en la <strong>PyME</strong><small aria-hidden="true">INTELIGENCIA ARTIFICIAL, NEGOCIOS REALES</small></span></a><nav aria-label="Navegación principal">{nav('/','Explora los casos')}{nav('/manda-tu-caso/','Manda tu caso')}{nav('/patrocina/','Patrocina')}</nav><a class="nav-newsletter" href="{P}/#boletin">El boletín <span aria-hidden="true">↗</span></a></div></header>
+<main id="main" tabindex="-1">{body}</main><footer class="site-footer"><a class="footer-brand" href="{P}/">IA en la PyME<span aria-hidden="true">↗</span></a><p>Casos reales, con su fuente.<br>Si algo está mal, avísanos.</p><a href="{P}/manda-tu-caso/">Construyamos el directorio juntos ↗</a></footer></body></html>"""
+    return result.replace("↗",ARROW)
+def card(c):
+    index=casos.index(c)+1
     return f"""<a class="card" href="{P}/casos/{c['id']}/" data-giro="{e(c['giro'])}" data-tarea="{e(c['tarea'])}" data-pais="{e(c['pais'])}" data-herr="{e('|'.join(c['herramientas']))}" data-txt="{e((c['nombre']+' '+c['giro']+' '+c['tarea']+' '+' '.join(c['herramientas'])+' '+c['resultado']).lower())}">
-<h3>{e(c['nombre'])}</h3><span class="tag">{e(c['pais'])}</span><span class="tag">{e(c['tarea'])}</span><span class="tag ev-{c['evidencia']}">evidencia {c['evidencia']}</span>
-<p>{e(c['resultado'] or 'La fuente no da cifras.')}</p></a>"""
+<div class="card-top"><span class="case-index">CASO / {index:02d}</span><span class="country">{e(c['pais'])}</span></div><p class="card-sector">{e(c['giro'])}</p><h3>{e(c['nombre'])}</h3><div class="card-tags"><span class="tag">{e(c['tarea'])}</span><span class="tag ev-{c['evidencia']}"><span aria-hidden="true">●</span> evidencia {c['evidencia']}</span></div>
+<p class="card-result">{e(c['resultado'] or 'La fuente no da cifras.')}</p><div class="card-bottom"><span>Explorar el caso</span><span class="card-arrow" aria-hidden="true">↗</span></div></a>"""
 shutil.rmtree(S,ignore_errors=True); os.makedirs(S)
 open(S+"/style.css","w").write(CSS)
+shutil.copyfile(R+"/gen/site.js",S+"/site.js")
 def opts(k,lab,vals): return f'<select id="{k}" aria-label="{lab}"><option value="">{lab}: todos</option>'+"".join(f'<option>{e(v)}</option>' for v in sorted(set(vals)))+"</select>"
 herrs=[h for c in casos for h in c["herramientas"]]
-body=f"""<section class="hero"><h1>Casos reales de IA en pequeños negocios</h1><p>{len(casos)} historias de negocios de México, LatAm y España: qué hicieron, con qué herramienta y qué resultado dicen haber tenido, cada una con su fuente.</p></section>
-<div class="f"><input id="q" type="search" placeholder="Busca: WhatsApp, inventario, facturas…" aria-label="Buscar">{opts('giro','Giro',[c['giro'] for c in casos])}{opts('tarea','Tarea',[c['tarea'] for c in casos])}{opts('herr','Herramienta',herrs)}{opts('pais','País',[c['pais'] for c in casos])}</div>
-<p id="n"></p><div class="grid" id="list">{''.join(card(c) for c in casos)}</div>{NL}
-<script>const $=i=>document.getElementById(i),f=()=>{{let q=$('q').value.toLowerCase(),n=0;document.querySelectorAll('.card').forEach(c=>{{let d=c.dataset,ok=(!q||d.txt.includes(q))&&(!$('giro').value||d.giro==$('giro').value)&&(!$('tarea').value||d.tarea==$('tarea').value)&&(!$('pais').value||d.pais==$('pais').value)&&(!$('herr').value||d.herr.split('|').includes($('herr').value));c.hidden=!ok;n+=ok}});$('n').textContent=n+' casos'}};['q','giro','tarea','herr','pais'].forEach(i=>$(i).addEventListener('input',f));f()</script>"""
+body=f"""<section class="hero" aria-labelledby="hero-title"><div class="hero-copy"><p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> EL DIRECTORIO DE IA PARA NEGOCIOS REALES</p><h1 id="hero-title">Casos reales de IA en <em>pequeños negocios.</em></h1><p class="hero-description">{len(casos)} historias de negocios de México, LatAm y España: qué hicieron, con qué herramienta y qué resultado dicen haber tenido, cada una con su fuente.</p><a class="btn primary" href="#directorio">Encuentra tu próxima idea <span aria-hidden="true">↓</span></a><p class="hero-footnote">Menos ruido. Más ejemplos que puedes explorar.</p></div><div class="hero-art" aria-hidden="true"><div class="art-grid"></div><div class="orbit orbit-one" data-parallax="0.035"></div><div class="orbit orbit-two" data-parallax="-0.025"></div><span class="art-label">CONEXIONES QUE TRANSFORMAN</span><div class="core" data-parallax="0.018"><span>IA</span><small>EN ACCIÓN</small></div><div class="node node-one" data-parallax="-0.025"><span class="node-symbol">↗</span><span>Ventas<small>NUEVAS POSIBILIDADES</small></span></div><div class="node node-two" data-parallax="0.025"><span class="node-symbol">≋</span><span>Inventario<small>EL DÍA A DÍA, MÁS SIMPLE</small></span></div><div class="node node-three" data-parallax="-0.018"><span class="node-symbol">✳</span><span>Atención<small>CONVERSACIONES CON VALOR</small></span></div><span class="art-caption">La tecnología cambia.<br>Las ideas se comparten.</span><span class="art-plus">+</span></div></section>
+<div class="manifesto"><span>LA IA, A PIE DE NEGOCIO</span><p>De la idea a la práctica.<br><strong>Conoce quién ya dio el paso.</strong></p><a href="{P}/manda-tu-caso/">¿Tienes una historia? Compártela ↗</a></div>
+<section class="directory" id="directorio" aria-labelledby="directory-title"><div class="section-heading"><div><p class="eyebrow">EXPLORA EL DIRECTORIO</p><h2 id="directory-title">Un caso puede ser<br>tu punto de partida<span>.</span></h2></div><p>Busca por lo que necesitas resolver.<br>Cada historia incluye su fuente y nivel de evidencia.</p></div>
+<form class="filter-panel" role="search" aria-label="Buscar y filtrar casos"><div class="search-field"><label for="q">¿Qué quieres mejorar en tu negocio?</label><input id="q" type="search" placeholder="Busca: WhatsApp, inventario, facturas…" aria-controls="list"></div><div class="f">{opts('giro','Giro',[c['giro'] for c in casos])}{opts('tarea','Tarea',[c['tarea'] for c in casos])}{opts('herr','Herramienta',herrs)}{opts('pais','País',[c['pais'] for c in casos])}</div></form>
+<div class="results-bar"><p id="n" role="status" aria-live="polite" aria-atomic="true">{len(casos)} casos</p><button type="button" id="reset-filters" hidden>Limpiar filtros <span aria-hidden="true">×</span></button><span class="results-note">HISTORIAS CON FUENTE, SIEMPRE</span></div><div class="grid" id="list">{''.join(card(c) for c in casos)}</div><div class="empty-state" id="empty-state" hidden><span aria-hidden="true">⌕</span><h3>No encontramos casos con esos filtros.</h3><p>Prueba otra palabra o amplía la búsqueda.</p><button type="button" id="empty-reset">Ver todos los casos ↗</button></div></section>{NL}"""
 open(S+"/index.html","w").write(page("IA en la PyME: casos reales de inteligencia artificial en pequeños negocios","Directorio de casos reales de IA en PyMEs de México y LatAm: WhatsApp, ventas, inventario, contabilidad. Cada caso con su fuente.",body,"/"))
 for c in casos:
     t=title(c); d=f"{c['nombre']} ({c['pais']}): {c['resultado'] or 'caso de IA en '+c['tarea'].lower()}"[:155]
     ld=json.dumps({"@context":"https://schema.org","@type":"Article","headline":t,"inLanguage":"es","citation":c["fuente"]},ensure_ascii=False)
-    b=f"""<p><a href="{P}/">← Todos los casos</a></p><h1>{e(t)}</h1><p class="tag ev-{c['evidencia']}">Nivel de evidencia: {c['evidencia']}</p>
+    b=f"""<a class="back-link" href="{P}/#directorio">← Todos los casos</a><div class="article-heading"><p class="eyebrow">HISTORIAS DE IA EN LA PRÁCTICA / {e(c['pais'])}</p><h1>{e(t)}</h1><p class="tag ev-{c['evidencia']}">Nivel de evidencia: {c['evidencia']}</p></div>
 <div class="box"><dl><dt>Negocio</dt><dd>{e(c['nombre'])}</dd><dt>País</dt><dd>{e(c['pais'])}</dd><dt>Giro</dt><dd>{e(c['giro'])}</dd><dt>Tarea</dt><dd>{e(c['tarea'])}</dd>
 <dt>Herramientas</dt><dd>{e(', '.join(c['herramientas']))}</dd><dt>Costo aproximado</dt><dd>{e(c['costo'] or 'No lo dice la fuente')}</dd>
 {qh(c)}<dt>Resultado (tal como lo dice la fuente)</dt><dd>{e(c['resultado'] or 'La fuente no da cifras.')}</dd><dt>Fuente</dt><dd><a href="{e(c['fuente'])}" rel="nofollow noopener" target="_blank">{e(c['fuente'])}</a></dd>
