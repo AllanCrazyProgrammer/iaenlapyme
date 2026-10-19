@@ -72,7 +72,7 @@ def test_no_placeholder_pricing(build):
     assert "precio" not in t and "por definir" not in t
 
 def test_search_and_filters(server, browser, publicados):
-    pg=browser.new_page(); pg.goto(server+"/")
+    pg=browser.new_page(); pg.goto(server+"/", wait_until="domcontentloaded")
     vis=lambda: pg.locator(".card:visible").count()
     assert vis()==len(publicados)
     pg.fill("#q","whatsapp"); n=vis(); assert 0<n<len(publicados)
@@ -85,13 +85,13 @@ def test_search_and_filters(server, browser, publicados):
     assert "0 casos" in pg.inner_text("#n")
 
 def test_css_loads(server, browser):
-    pg=browser.new_page(); pg.goto(server+"/casos/mr-food-ezcontact/")
+    pg=browser.new_page(); pg.goto(server+"/casos/mr-food-ezcontact/", wait_until="domcontentloaded")
     bg=pg.eval_on_selector("header","e=>getComputedStyle(e).backgroundColor")
     assert bg=="rgb(11, 110, 79)"
 
 @pytest.mark.parametrize("path",["/","/casos/mr-food-ezcontact/","/manda-tu-caso/","/patrocina/"])
 def test_mobile_layout(server, browser, path):
-    pg=browser.new_page(viewport={"width":375,"height":800},is_mobile=True); pg.goto(server+path)
+    pg=browser.new_page(viewport={"width":375,"height":800},is_mobile=True); pg.goto(server+path, wait_until="domcontentloaded")
     sw=pg.evaluate("document.documentElement.scrollWidth"); assert sw<=375, f"overflow {sw}px"
     if path=="/":
         cols=pg.eval_on_selector(".grid","e=>getComputedStyle(e).gridTemplateColumns.split(' ').length"); assert cols==1
@@ -102,3 +102,10 @@ def test_tally_embed(build):
     assert "https://tally.so/widgets/embed.js" in t
     assert 'href="https://tally.so/r/1WPYyl"' in t
     assert "FORM_BACKEND_PENDIENTE" not in t and "Placeholder" not in t
+
+@pytest.mark.parametrize("rel",["index.html","casos/mr-food-ezcontact/index.html"])
+def test_kit_embed(build, rel):
+    t=open(os.path.join(SITE,rel),encoding="utf-8").read()
+    assert '<script async data-uid="5e51021646" src="https://ia-en-la-pyme.kit.com/5e51021646/index.js"></script>' in t
+    assert 'href="https://ia-en-la-pyme.kit.com/5e51021646"' in t
+    assert "Placeholder: falta conectar" not in t

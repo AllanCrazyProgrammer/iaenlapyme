@@ -18,7 +18,8 @@ input,select,textarea,button{font:inherit;padding:10px;border:1px solid #cdd3dc;
 footer{text-align:center;font-size:.85rem;color:#667;padding:24px}dl dt{font-weight:700;margin-top:10px}dl dd{margin:0}
 @media(min-width:700px){.f{grid-template-columns:2fr 1fr 1fr 1fr 1fr}.f input{grid-column:auto}.grid{grid-template-columns:1fr 1fr}}"""
 NL="""<section class="box nl"><h2>El boletín semanal</h2><p>5 casos reales de IA en negocios como el tuyo, cada semana. Gratis.</p>
-<form action="#" onsubmit="alert('Placeholder: falta conectar la herramienta de newsletter');return false"><input type="email" required placeholder="tu@correo.com" aria-label="Correo"><button>Suscribirme</button></form></section>"""
+<script async data-uid="5e51021646" src="https://ia-en-la-pyme.kit.com/5e51021646/index.js"></script>
+<p><a href="https://ia-en-la-pyme.kit.com/5e51021646" target="_blank" rel="noopener" style="color:#f0b429">¿No ves el formulario? Suscríbete aquí</a></p></section>"""
 def page(t,desc,body,path,extra=""):
     url=B+path; body=body.replace("{P}",P)
     return f"""<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
