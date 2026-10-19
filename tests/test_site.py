@@ -89,7 +89,7 @@ def test_css_loads(server, browser):
     bg=pg.eval_on_selector("header","e=>getComputedStyle(e).backgroundColor")
     assert bg=="rgb(11, 110, 79)"
 
-@pytest.mark.parametrize("path",["/","/casos/mr-food-ezcontact/","/manda-tu-caso/","/patrocina/"])
+@pytest.mark.parametrize("path",["/","/casos/mr-food-ezcontact/","/casos/rey-pez/","/manda-tu-caso/","/patrocina/"])
 def test_mobile_layout(server, browser, path):
     pg=browser.new_page(viewport={"width":375,"height":800},is_mobile=True); pg.goto(server+path, wait_until="domcontentloaded")
     sw=pg.evaluate("document.documentElement.scrollWidth"); assert sw<=375, f"overflow {sw}px"
@@ -147,7 +147,7 @@ def test_vote_new_counter_starts_at_zero(server, browser):
     ctx=browser.new_context(); pg=ctx.new_page()
     pg.route(API+"/**", lambda r: r.fulfill(status=404, content_type="application/json", body='{"error":"Key not found"}', headers={"Access-Control-Allow-Origin":"*"}))
     pg.goto(server+"/casos/mr-food-ezcontact/", wait_until="domcontentloaded"); pg.wait_for_selector("#vote:not([hidden])")
-    assert "0 personas" in pg.inner_text("#vn"); ctx.close()
+    assert "primera persona" in pg.inner_text("#vn"); ctx.close()
 
 def test_vote_hidden_if_service_down(server, browser):
     ctx=browser.new_context(); pg=ctx.new_page()

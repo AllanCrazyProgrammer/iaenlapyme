@@ -11,7 +11,7 @@ def vote(c):
     """<script>(()=>{const v=document.getElementById('vote'),b=document.getElementById('vbtn'),n=document.getElementById('vn'),d=v.dataset,u=a=>d.api+'/'+a+'/'+d.ns+'/'+d.key,lk='voto:'+d.key;
 let st=()=>{try{return localStorage.getItem(lk)}catch(x){return null}},sv=()=>{try{localStorage.setItem(lk,'1')}catch(x){}};
 const go=(a)=>{const c=new AbortController(),t=setTimeout(()=>c.abort(),6000);return fetch(u(a),{signal:c.signal}).then(r=>{clearTimeout(t);if(a=='get'&&r.status==404)return {value:0};if(!r.ok)throw r.status;return r.json()}).then(j=>{if(typeof j.value!='number')throw 'x';return j.value})};
-const show=x=>{n.textContent=x==1?'A 1 persona le sirvió':'A '+x+' personas les sirvió'};const done=()=>{b.disabled=true;b.textContent='✓ Te sirvió'};
+const show=x=>{n.textContent=x==0?'¿Te sirvió? Sé la primera persona en decirlo':x==1?'A 1 persona le sirvió':'A '+x+' personas les sirvió'};const done=()=>{b.disabled=true;b.textContent='✓ Te sirvió'};
 go('get').then(x=>{show(x);if(st())done();v.hidden=false}).catch(()=>{});
 b.addEventListener('click',()=>{if(st())return;b.disabled=true;go('hit').then(x=>{sv();show(x);done()}).catch(()=>{b.disabled=false;n.textContent='No se pudo registrar tu voto. Intenta más tarde.'})});})()</script>""")
 def art(g):
@@ -26,7 +26,7 @@ input,select,textarea,button{font:inherit;padding:10px;border:1px solid #cdd3dc;
 .card h3{margin:.2em 0 .4em;font-size:1.05rem}.tag{display:inline-block;font-size:.75rem;background:#e6f2ee;color:#0b6e4f;border-radius:99px;padding:2px 8px;margin:2px}
 .ev-alto{background:#d1f5d3}.ev-bajo{background:#fdeccc;color:#8a5a00}.box{background:#fff;border-radius:12px;padding:16px;margin:18px 0;box-shadow:0 1px 3px #0001}
 .nl{background:#102a43;color:#fff}.nl form{display:flex;gap:8px}.nl button{width:auto;background:#f0b429;color:#102a43;font-weight:700}
-footer{text-align:center;font-size:.85rem;color:#667;padding:24px}dl dt{font-weight:700;margin-top:10px}dl dd{margin:0}
+footer{text-align:center;font-size:.85rem;color:#667;padding:24px}dl dt{font-weight:700;margin-top:10px}dl dd{margin:0;overflow-wrap:anywhere}
 .vote{display:flex;gap:12px;align-items:center;flex-wrap:wrap}.vote button{width:auto;padding:10px 16px;font-weight:700}.vote button:disabled{background:#8fb8aa;cursor:default}
 @media(min-width:700px){.f{grid-template-columns:2fr 1fr 1fr 1fr 1fr}.f input{grid-column:auto}.grid{grid-template-columns:1fr 1fr}}"""
 NL="""<section class="box nl"><h2>El boletín semanal</h2><p>5 casos reales de IA en negocios como el tuyo, cada semana. Gratis.</p>
