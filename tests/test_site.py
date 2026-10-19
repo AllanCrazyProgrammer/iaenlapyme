@@ -171,8 +171,13 @@ FAKE_KIT="""document.currentScript.insertAdjacentHTML('beforebegin','<form class
 @pytest.mark.parametrize("path",["/","/casos/rey-pez/"])
 def test_kit_email_field_visible(server, browser, path):
     pg=browser.new_page(viewport={"width":375,"height":800},is_mobile=True)
-    pg.route(KIT, lambda r: r.fulfill(status=200, content_type="application/javascript", body=FAKE_KIT))
-    pg.route("**/*", lambda r: r.continue_() if r.request.url.startswith(server.split("/iaenlapyme")[0]) or r.request.url==KIT else r.abort())
+    local=server.split("/iaenlapyme")[0]
+    def h(r):
+        u=r.request.url
+        if u==KIT: r.fulfill(status=200, content_type="application/javascript", body=FAKE_KIT)
+        elif u.startswith(local): r.continue_()
+        else: r.abort()
+    pg.route("**/*", h)
     pg.goto(server+path, wait_until="domcontentloaded")
     inp=pg.locator(".nl input[type=email]"); inp.wait_for(state="visible")
     assert inp.bounding_box()["height"]>=30 and inp.bounding_box()["width"]>=200
