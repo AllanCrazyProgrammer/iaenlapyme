@@ -442,6 +442,91 @@
   "nota": "Reportaje de prensa (Expansión) con el dueño identificado. El mismo artículo advierte que el uso masivo de imágenes genéricas puede restar diferenciación."
  },
  {
+  "id": "serviacero-eva",
+  "nombre": "Serviacero Comercial",
+  "pais": "México",
+  "giro": "Distribuidora de acero",
+  "tarea": "Ventas y cotizaciones por WhatsApp",
+  "herramientas": [
+   "Eva (agente de IA en WhatsApp)"
+  ],
+  "costo": "",
+  "que_hace": [
+   "Contesta al instante los mensajes del WhatsApp de ventas, a cualquier hora.",
+   "Pide al cliente los datos que faltan para cotizar y busca en el catálogo.",
+   "Deja cada conversación ordenada por etapa de venta para que el equipo cierre."
+  ],
+  "resultado": "Más de 4 veces las ventas en línea en seis meses desde que arrancó el agente (dato reportado por la empresa, sin cifras de dinero ni volúmenes).",
+  "fuente": "https://www.goeva.ai/es/casos/serviacero",
+  "fecha": "2026-08",
+  "evidencia": "medio",
+  "nota": "Caso publicado por el proveedor con autorización y nombre del cliente. La cifra la reporta Serviacero; no hay verificación independiente."
+ },
+ {
+  "id": "barril-y-panceta-meteor",
+  "nombre": "Barril y Panceta",
+  "pais": "Colombia",
+  "giro": "Asadero de chicharrón con domicilios",
+  "tarea": "Pedidos a domicilio por WhatsApp",
+  "herramientas": [
+   "Agente de IA de Meteor en WhatsApp"
+  ],
+  "costo": "",
+  "que_hace": [
+   "Atiende los pedidos a domicilio que llegan por WhatsApp, también en hora pico.",
+   "Sugiere productos adicionales para subir el ticket.",
+   "Un operador solo revisa que cada pedido quede correcto."
+  ],
+  "resultado": "El restaurante dice que su captación de clientes subió entre 20 y 30 % y que ahora atiende a más clientes a la vez (antes eran dos personas en el WhatsApp).",
+  "fuente": "https://meteor.com.co/casos/barril-y-panceta-domicilios-whatsapp",
+  "fecha": "2026-10",
+  "evidencia": "bajo",
+  "nota": "Testimonio en video publicado por el proveedor. El porcentaje es una estimación del propio restaurante, no una medición publicada."
+ },
+ {
+  "id": "rishtedar-hojacero",
+  "nombre": "Rishtedar",
+  "pais": "Chile",
+  "giro": "Restaurante con cuatro locales",
+  "tarea": "Reservas, atención y fidelización",
+  "herramientas": [
+   "Agente de IA \"Rishi\" en la API oficial de WhatsApp",
+   "Sistema de reservas propio",
+   "Pases en Apple Wallet y Google Wallet"
+  ],
+  "costo": "",
+  "que_hace": [
+   "Crea, cancela y reagenda reservas por WhatsApp verificando el teléfono de quien escribe.",
+   "Recomienda platos, avisa de eventos y promociones y consulta saldos de gift cards.",
+   "Pasa la conversación a una persona cuando hace falta."
+  ],
+  "resultado": "El agente atiende conversaciones reales desde julio de 2026 y la fidelización funciona en los cuatro locales desde septiembre de 2026. No se publican cifras de resultados.",
+  "fuente": "https://www.hojacero.cl/casos/rishtedar",
+  "fecha": "2026-09",
+  "evidencia": "bajo",
+  "nota": "Caso publicado por la agencia que lo construyó. Describe qué hace el sistema, pero no da métricas de ventas ni de tiempo ahorrado."
+ },
+ {
+  "id": "panificadora-la-altena",
+  "nombre": "Panificadora la Alteña",
+  "pais": "México",
+  "giro": "Panadería y repostería",
+  "tarea": "Atención a clientes y ventas",
+  "herramientas": [
+   "Asistente de IA conversacional hecho por UXFUL"
+  ],
+  "costo": "",
+  "que_hace": [
+   "Responde dudas sobre productos de panadería y repostería, disponibilidad y surtidos, 24/7.",
+   "Identifica la ciudad del cliente y lo manda con el vendedor que le corresponde."
+  ],
+  "resultado": "Sin cifras publicadas; la fuente solo describe el asistente y su función.",
+  "fuente": "https://uxful.com.mx/panificadora-la-altena/",
+  "fecha": "2026",
+  "evidencia": "bajo",
+  "nota": "Panadería de Tepatitlán, Jalisco. Ficha de portafolio de la agencia que lo desarrolló. Confirma que existe el proyecto, no su impacto."
+ },
+ {
   "id": "rey-pez",
   "nombre": "Rey Pez",
   "pais": "México",

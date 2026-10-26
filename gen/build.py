@@ -19,7 +19,7 @@ go('get').then(x=>{show(x);if(st())done();v.hidden=false}).catch(()=>{});
 b.addEventListener('click',()=>{if(st())return;b.disabled=true;go('hit').then(x=>{sv();show(x);done()}).catch(()=>{b.disabled=false;n.textContent='No se pudo registrar tu voto. Intenta más tarde.'})});})()</script>""")
 def art(g):
     g=g.lower(); w=g.split()[0]
-    if w in ("restaurante","fabricante","viñedo","taller","comedor"): return "un "+g
+    if w in ("restaurante","fabricante","viñedo","taller","comedor","asadero"): return "un "+g
     return ("una "+g) if w.endswith(("a","ería","ción")) else ("un negocio de "+g)
 def title(c): return f"Cómo {art(c['giro'])} en {c['pais']} usa IA para {c['tarea'][0].lower()+c['tarea'][1:]}"
 CSS=Path(R+"/gen/style.css").read_text(encoding="utf-8")+"\n"+Path(R+"/gen/catalog.css").read_text(encoding="utf-8")
