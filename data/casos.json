@@ -527,6 +527,93 @@
   "nota": "Panadería de Tepatitlán, Jalisco. Ficha de portafolio de la agencia que lo desarrolló. Confirma que existe el proyecto, no su impacto."
  },
  {
+  "id": "floreria-suspiros-yolani",
+  "nombre": "Florería Suspiros",
+  "pais": "México",
+  "giro": "Florería con envíos",
+  "tarea": "Atención y pedidos por WhatsApp",
+  "herramientas": [
+   "Yolani (agente de IA en WhatsApp)",
+   "Servidor MCP conectado a su tienda en línea"
+  ],
+  "costo": "",
+  "que_hace": [
+   "Contesta el WhatsApp a cualquier hora y busca arreglos por nombre, flor u ocasión, con el precio de la ciudad del cliente.",
+   "Consulta en vivo si hay entrega en esa ciudad y si el pedido alcanza la fecha y el horario pedidos.",
+   "Registra el pedido directo en el sistema de la florería y le dice al cliente en qué va su envío.",
+   "Pasa la conversación a una persona cuando llega un comprobante de pago, una cancelación, un problema o alguien pide hablar con el equipo."
+  ],
+  "resultado": "El 14 de febrero de 2026 entraron 3,545 mensajes en 258 conversaciones y el agente contestó primero en 209 de las 255 que empezaron ese día, con una mediana de 17 segundos. En septiembre de 2026, el agente llevó solo el 42% de las conversaciones (incluye clientes que ya no regresaron, así que no equivale a ventas).",
+  "fuente": "https://yolani.co/blog/caso-real-floreria-suspiros",
+  "fecha": "2026-10",
+  "evidencia": "medio",
+  "nota": "Caso publicado por el proveedor (Yolani) con nombre del cliente y cifras agregadas de su plataforma, de noviembre de 2025 a septiembre de 2026. Explica cómo midió y sus límites. No hay verificación independiente ni cifras de ventas."
+ },
+ {
+  "id": "petloy-respondio",
+  "nombre": "Petloy",
+  "pais": "México",
+  "giro": "Tienda de productos para mascotas",
+  "tarea": "Pedidos recurrentes por WhatsApp",
+  "herramientas": [
+   "Agente de IA propio conectado a su ERP",
+   "respond.io (plataforma de WhatsApp)"
+  ],
+  "costo": "",
+  "que_hace": [
+   "Toma por WhatsApp las compras que se repiten (alimento, premios) y registra el pedido en el sistema de la tienda.",
+   "Manda recordatorios para volver a pedir, avisos de su programa de lealtad, encuestas y solicitudes de reseña.",
+   "Pasa a una persona las conversaciones complicadas."
+  ],
+  "resultado": "Según el caso, las ventas subieron 55%, los pedidos diarios se duplicaron con creces y el agente de IA coloca el 35% de todos los pedidos (cifras reportadas por la empresa y el proveedor).",
+  "fuente": "https://respond.io/es/customers/petloy-grows-sales-55-percent-with-whatsapp-automation",
+  "fecha": "2026",
+  "evidencia": "medio",
+  "nota": "Caso publicado por el proveedor con nombre del negocio y de sus cofundadores. Petloy tiene almacenes y sucursales propias, así que es más grande que una tiendita. No hay verificación independiente; el aumento de ventas también coincide con su expansión a nuevas ciudades."
+ },
+ {
+  "id": "flores-avenida-agentforce",
+  "nombre": "Flores Avenida",
+  "pais": "Argentina",
+  "giro": "Florería y regalería familiar",
+  "tarea": "Atención fuera de horario y marketing a clientes",
+  "herramientas": [
+   "Salesforce CRM",
+   "Agentforce (agente de IA de Salesforce)",
+   "Email marketing automatizado"
+  ],
+  "costo": "",
+  "que_hace": [
+   "Un agente de IA responde dudas, asesora y acompaña la compra las 24 horas, incluso a clientes de otros países con otro horario.",
+   "El CRM junta los datos de cada cliente y manda correos automáticos y personalizados antes de cumpleaños y aniversarios."
+  ],
+  "resultado": "Según Salesforce, las ventas crecieron alrededor de 30%, atribuido sobre todo al email marketing personalizado; además ahora atiende 24 horas.",
+  "fuente": "https://www.salesforce.com/mx/customer-stories/flores-avenida/",
+  "fecha": "2026-09",
+  "evidencia": "medio",
+  "nota": "Lo publica el proveedor (Salesforce) y lo confirma una nota de El Cronista (https://www.cronista.com/infotechnology/entreprenerds/la-floreria-del-conurbano-que-fue-a-buscar-tecnologia-de-clase-mundial-para-crecer-ahora-llega-a-todo-el-amba/) con entrevista al dueño. El 30% no se separa entre el agente y el CRM. Algunos medios dijeron por error que es mexicana: está en el Gran Buenos Aires."
+ },
+ {
+  "id": "conchitas-negras-chatbot",
+  "nombre": "Restaurante Conchitas Negras",
+  "pais": "Perú",
+  "giro": "Restaurante de mariscos",
+  "tarea": "Pedidos y ventas por chat",
+  "herramientas": [
+   "Chatbot con modelo de lenguaje (LLM)"
+  ],
+  "costo": "",
+  "que_hace": [
+   "Atiende a los clientes por chat y toma pedidos con respuestas casi inmediatas.",
+   "Personaliza la atención con la información del restaurante."
+  ],
+  "resultado": "Comparando antes y después: respuesta de casi 0 a 1 minuto, 27% más pedidos procesados, 28.1% más ventas y satisfacción de 59% a 91%.",
+  "fuente": "https://repositorio.upn.edu.pe/item/fa6576f0-9ca0-4798-8f94-55b2cd019a83",
+  "fecha": "2025-08",
+  "evidencia": "medio",
+  "nota": "Tesis de la Universidad Privada del Norte (Trujillo, 2024-2025) con diseño preexperimental: una sola medición antes y después, sin grupo de control. Es un estudio académico, no un caso de un proveedor."
+ },
+ {
   "id": "rey-pez",
   "nombre": "Rey Pez",
   "pais": "México",
