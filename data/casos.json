@@ -614,6 +614,70 @@
   "nota": "Tesis de la Universidad Privada del Norte (Trujillo, 2024-2025) con diseño preexperimental: una sola medición antes y después, sin grupo de control. Es un estudio académico, no un caso de un proveedor."
  },
  {
+  "id": "astrid-cerna-yavendio",
+  "nombre": "Astrid Cerna Belleza",
+  "pais": "Perú",
+  "giro": "Tienda de skincare y maquillaje",
+  "tarea": "Ventas por WhatsApp y redes",
+  "herramientas": [
+   "yavendió! (agente de IA en WhatsApp e Instagram)"
+  ],
+  "costo": "",
+  "que_hace": [
+   "Contesta las preguntas de producto que antes atendían 4 vendedores uno por uno (unas 4,000 conversaciones al mes, según el proveedor).",
+   "Ofrece promociones y productos complementarios durante la conversación para subir el valor del pedido.",
+   "Manda recordatorios automáticos a quien no terminó la compra."
+  ],
+  "resultado": "La conversión dentro de la plataforma pasó de 2.4% a 4.2% (+75%), según yavendió!. El proveedor calcula +US$ 2,880 al mes multiplicando esa conversión por el ticket promedio; no es una cifra de ventas reportada aparte.",
+  "fuente": "https://yavendio.com/co/casos-de-exito/astrid-cerna",
+  "fecha": "2026",
+  "evidencia": "medio",
+  "nota": "Caso publicado por el proveedor, con testimonio del CEO identificado solo por su nombre de pila. El aumento en dinero es un cálculo del proveedor, no un dato de ventas."
+ },
+ {
+  "id": "sicurezza-yavendio",
+  "nombre": "Sicurezza",
+  "pais": "Perú",
+  "giro": "Marca de ropa interior sin costuras",
+  "tarea": "Ventas por WhatsApp conectadas a Shopify",
+  "herramientas": [
+   "yavendió! (agente de IA en WhatsApp)",
+   "Shopify"
+  ],
+  "costo": "",
+  "que_hace": [
+   "Resuelve dudas de tallas y modelos a cualquier hora, incluidos los fines de semana, cuando antes casi no se vendía.",
+   "Consulta productos, precios y stock en Shopify y registra los pedidos ahí sin capturarlos a mano.",
+   "Da seguimiento a quien no cerró la compra."
+  ],
+  "resultado": "La conversión dentro de la plataforma pasó de 5.4% a 7.3% (+35%), según yavendió!. Los +US$ 1,900 al mes son un cálculo del proveedor con el ticket promedio, no ventas reportadas aparte.",
+  "fuente": "https://yavendio.com/co/casos-de-exito/sicurezza",
+  "fecha": "2026",
+  "evidencia": "medio",
+  "nota": "Caso del proveedor con testimonio de la gerente de canal digital (solo nombre de pila). Sicurezza tiene tienda en línea y tiendas físicas en varias ciudades de Perú."
+ },
+ {
+  "id": "kuwana-chat-nube",
+  "nombre": "Kuwana",
+  "pais": "Argentina",
+  "giro": "Tienda de ropa en talles grandes",
+  "tarea": "Ventas por WhatsApp",
+  "herramientas": [
+   "Chat Nube (asistente de ventas con IA de Tiendanube)"
+  ],
+  "costo": "",
+  "que_hace": [
+   "Atiende consultas por WhatsApp con el catálogo, el stock y los pedidos de la tienda.",
+   "Arma el carrito y genera un enlace de pago para cerrar la venta en el chat.",
+   "Cubre la atención de noche y en fin de semana."
+  ],
+  "resultado": "En mayo de 2026: 3,144 conversaciones atendidas, 145 órdenes cerradas y ARS 22.5 millones en ventas atribuidas al asistente; 36.9% de las consultas llegaron de noche o en fin de semana.",
+  "fuente": "https://www.enretail.com/2026/08/25/comercio-agentico-retail-argentino-ia-chat-nube/",
+  "fecha": "2026-08",
+  "evidencia": "medio",
+  "nota": "Datos de Tiendanube (el proveedor) publicados por el medio de retail enRetail. 'Ventas atribuidas' significa que pasaron por el chat, no que sin la IA no habrían ocurrido."
+ },
+ {
   "id": "rey-pez",
   "nombre": "Rey Pez",
   "pais": "México",
