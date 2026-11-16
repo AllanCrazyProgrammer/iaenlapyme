@@ -678,6 +678,73 @@
   "nota": "Datos de Tiendanube (el proveedor) publicados por el medio de retail enRetail. 'Ventas atribuidas' significa que pasaron por el chat, no que sin la IA no habrían ocurrido."
  },
  {
+  "id": "alier-fernvay",
+  "nombre": "Alier",
+  "pais": "México",
+  "giro": "Tienda de productos para incontinencia de adulto",
+  "tarea": "Ventas por WhatsApp",
+  "herramientas": [
+   "Asistente de IA en WhatsApp de Fernvay",
+   "API de WhatsApp Business"
+  ],
+  "costo": "",
+  "que_hace": [
+   "Contesta el WhatsApp de noche y en fin de semana, cuando antes solo salía el mensaje automático de 'fuera de oficina'.",
+   "Responde las dudas que se repiten: producto, precio, cobertura por código postal, costo de envío y formas de pago.",
+   "Lleva algunas ventas completas, desde la primera pregunta hasta el comprobante de pago.",
+   "La dueña lo entrenó en un día con sus productos, precios y envíos, y corrige respuestas con un pulgar arriba o abajo."
+  ],
+  "resultado": "En cuatro meses (24 jun – 21 oct 2026): 88% de las conversaciones que atendió el asistente empezaron fuera de horario (37 de 42), con 28 segundos de mediana para la primera respuesta. El asistente participó directamente en 22 ventas por MXN 23,138.16 y llevó 8 de principio a fin. Antes, ponerse al corriente los lunes tomaba de 2.5 a 3 horas.",
+  "fuente": "https://fernvayconsulting.com/es/caso-alier-whatsapp/",
+  "fecha": "2026-10",
+  "evidencia": "medio",
+  "nota": "Caso publicado por el proveedor (Fernvay) con nombre de la directora del negocio y una tabla que dice de dónde sale cada cifra (registros de la plataforma y base de ventas de Alier). Volumen pequeño (42 conversaciones). Sin verificación independiente."
+ },
+ {
+  "id": "ventus-databot",
+  "nombre": "Ventus",
+  "pais": "Chile",
+  "giro": "Equipamiento gastronómico e industrial",
+  "tarea": "Ventas y cotizaciones por WhatsApp",
+  "herramientas": [
+   "Databot (asistente de IA en web y WhatsApp)",
+   "Tienda VTEX"
+  ],
+  "costo": "",
+  "que_hace": [
+   "Pregunta por el tipo de negocio, el espacio y el uso, y recomienda equipos del catálogo real de la tienda.",
+   "Arma cotizaciones y se las manda al cliente en PDF a su correo.",
+   "Resuelve dudas de pedidos y garantías, y manda servicio técnico y repuestos al área correcta.",
+   "Funciona igual en Chile y en Perú, con la moneda y los datos fiscales de cada país."
+  ],
+  "resultado": "Según el proveedor, el asistente resuelve 9 de cada 10 preguntas sin intervención del equipo y ha generado más de 1,400 leads. Arrancó en Chile en mayo de 2025 y se lanzó en Perú en 3 días (febrero de 2026).",
+  "fuente": "https://databot.cl/casos-de-exito/imega-ventus/",
+  "fecha": "2026-09",
+  "evidencia": "medio",
+  "nota": "Caso publicado por el proveedor (Databot) con nombre del cliente y línea de tiempo. No da cifras de ventas ni explica cómo mide el 90%. Opera también en Perú. Sin verificación independiente."
+ },
+ {
+  "id": "move-u-sikorre",
+  "nombre": "Move Ü",
+  "pais": "Colombia",
+  "giro": "Tienda de uniformes antifluido",
+  "tarea": "Ventas por WhatsApp",
+  "herramientas": [
+   "Agente de IA en WhatsApp de Sikorre"
+  ],
+  "costo": "",
+  "que_hace": [
+   "Contesta el WhatsApp de la tienda y muestra el catálogo con fotos y la guía de tallas.",
+   "Cierra la venta solo.",
+   "Le pasa al equipo únicamente los casos que no puede resolver."
+  ],
+  "resultado": "Atendió entre 48 y 61 clientes distintos por día en septiembre de 2026, según la base de datos del bot.",
+  "fuente": "https://sikorre.com/es/casos-de-exito/",
+  "fecha": "2026-09",
+  "evidencia": "bajo",
+  "nota": "Ficha corta en la página de casos del proveedor (Sikorre, agencia que arrancó en 2026). La única cifra es de clientes atendidos, no de ventas. Sin verificación independiente."
+ },
+ {
   "id": "rey-pez",
   "nombre": "Rey Pez",
   "pais": "México",
